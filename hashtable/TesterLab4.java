@@ -12,25 +12,27 @@
 
 //////////////////////////////////////////////////////////////////////
 //
-// File generated at: 2021/10/20 -- 17:45:26
-// Seed: {1634,744690,520103}
+// File generated at: 2021/11/11 -- 14:19:42
+// Seed: {1636,636780,243929}
 //
 //////////////////////////////////////////////////////////////////////
 
 
 
-package aed.recursion;
+package aed.hashtable;
 
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.concurrent.CountDownLatch;
 import java.lang.reflect.*;
 import es.upm.aedlib.Entry;
+import es.upm.aedlib.EntryImpl;
 import es.upm.aedlib.Pair;
 import es.upm.aedlib.Position;
 import es.upm.aedlib.graph.*;
 import es.upm.aedlib.indexedlist.*;
 import es.upm.aedlib.map.*;
+import es.upm.aedlib.map.Map;
 import es.upm.aedlib.positionlist.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -48,7 +50,6 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Set;
@@ -62,7 +63,7 @@ import java.util.stream.Stream;
  * The main tester class which contains JUnit5 tests.
  */
 @SuppressWarnings({"unused","deprecation"})
-public class TesterLab3 {
+public class TesterLab4 {
 
   
     
@@ -72,8 +73,9 @@ public class TesterLab3 {
   {
     TestUtils.reportPid() ;
     ResultsHandler.init() ;
-    ResultsHandler.setNumTestsRemaining(80,60) ;
+    ResultsHandler.setNumTestsRemaining(81,60) ;
     TestData.setTesterType(true) ;
+    TestUtils.ensureAedlibVersion(2,5,1) ;
   }
   
   @AfterAll
@@ -98,8 +100,6 @@ TestData.initTrace() ;
 TestData.testName = new String("test_01") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_01")) ;
-if (ok_sofar)
-  ok_sofar = new RecursionCheck(new String("aed.recursion"),new String("Explorador"),new String("explora"),new Integer(1)).doCall().checkResult(new Boolean(true)) ;
 return ok_sofar ;
 }
 ) ;
@@ -116,7 +116,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_01")) ;
-    ResultsHandler.add_result(new String("recursionCheck"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -134,13 +134,20 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_02") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_02")) ;
 if (ok_sofar)
-  ok_sofar = new RecursionCheck(new String("aed.recursion"),new String("Utils"),new String("findBottom"),new Integer(1)).doCall().checkResult(new Boolean(true)) ;
+{
+  v_0 = new Constructor(2).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
 return ok_sofar ;
 }
 ) ;
@@ -157,7 +164,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_02")) ;
-    ResultsHandler.add_result(new String("recursionCheck"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -175,13 +182,22 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_03") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_03")) ;
 if (ok_sofar)
-  ok_sofar = new RecursionCheck(new String("aed.recursion"),new String("Utils"),new String("joinMultiSets"),new Integer(2)).doCall().checkResult(new Boolean(true)) ;
+{
+  v_0 = new Constructor(3).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Fernandez")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -198,7 +214,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_03")) ;
-    ResultsHandler.add_result(new String("recursionCheck"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -216,13 +232,24 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_04") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_04")) ;
 if (ok_sofar)
-  ok_sofar = new RecursionCheck(new String("aed.recursion"),new String("Utils"),new String("multiply"),new Integer(2)).doCall().checkResult(new Boolean(true)) ;
+{
+  v_0 = new Constructor(2).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Alzaga")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Fernandez")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -239,7 +266,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_04")) ;
-    ResultsHandler.add_result(new String("recursionCheck"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -257,11 +284,24 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_05") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_05")) ;
+if (ok_sofar)
+{
+  v_0 = new Constructor(3).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Prats")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(5)).doCall().checkResult(new String("Prats")) ;
 return ok_sofar ;
 }
 ) ;
@@ -278,7 +318,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_05")) ;
-    ResultsHandler.add_result(new String("multiply"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -296,13 +336,26 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_06") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_06")) ;
 if (ok_sofar)
-  ok_sofar = new Multiply(new Integer(3),new Integer(287)).doCall().checkResult(new Integer(861)) ;
+{
+  v_0 = new Constructor(3).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray()) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(5)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(0)).doCall().checkResult(new Boolean(false)) ;
 return ok_sofar ;
 }
 ) ;
@@ -319,7 +372,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_06")) ;
-    ResultsHandler.add_result(new String("multiply"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -337,13 +390,28 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_07") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_07")) ;
 if (ok_sofar)
-  ok_sofar = new Multiply(new Integer(365),new Integer(-202)).doCall().checkResult(new Integer(-73730)) ;
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray()) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Herrera")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Sanchez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(6)).doCall().checkResult(new String("Herrera")) ;
 return ok_sofar ;
 }
 ) ;
@@ -360,7 +428,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_07")) ;
-    ResultsHandler.add_result(new String("multiply"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -378,13 +446,28 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_08") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_08")) ;
 if (ok_sofar)
-  ok_sofar = new Multiply(new Integer(-205),new Integer(-363)).doCall().checkResult(new Integer(74415)) ;
+{
+  v_0 = new Constructor(2).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(0)) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(5)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Marti")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(3) }) ;
 return ok_sofar ;
 }
 ) ;
@@ -401,7 +484,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_08")) ;
-    ResultsHandler.add_result(new String("multiply"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -419,13 +502,30 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_09") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_09")) ;
 if (ok_sofar)
-  ok_sofar = new Multiply(new Integer(540),new Integer(51)).doCall().checkResult(new Integer(27540)) ;
+{
+  v_0 = new Constructor(2).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Garcia")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Gonzalez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Llorente")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(8),new Integer(1),new Integer(6) }) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
 return ok_sofar ;
 }
 ) ;
@@ -442,7 +542,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_09")) ;
-    ResultsHandler.add_result(new String("multiply"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -460,13 +560,32 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_10") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_10")) ;
 if (ok_sofar)
-  ok_sofar = new Multiply(new Integer(-66),new Integer(-682)).doCall().checkResult(new Integer(45012)) ;
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] {  }) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray()) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(0)) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(5)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(0)).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Llorente")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -483,7 +602,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_10")) ;
-    ResultsHandler.add_result(new String("multiply"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -501,13 +620,32 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_11") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_11")) ;
 if (ok_sofar)
-  ok_sofar = new Multiply(new Integer(-114),new Integer(-689)).doCall().checkResult(new Integer(78546)) ;
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Marin")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(8)).doCall().checkResult(new String("Marin")) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(8,new String("Marin")))) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Marti")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(8,new String("Marin")),new EntryImpl<Integer,String>(1,new String("Marti")))) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Fernandez")).doCall().checkResult(new String("Marin")) ;
 return ok_sofar ;
 }
 ) ;
@@ -524,7 +662,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_11")) ;
-    ResultsHandler.add_result(new String("multiply"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -542,13 +680,36 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_12") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_12")) ;
 if (ok_sofar)
-  ok_sofar = new Multiply(new Integer(-661),new Integer(-323)).doCall().checkResult(new Integer(213503)) ;
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Perez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Marin")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Benach")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Herrera")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Sanchez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Herrera")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Castro")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -565,7 +726,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_12")) ;
-    ResultsHandler.add_result(new String("multiply"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -583,13 +744,38 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_13") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_13")) ;
 if (ok_sofar)
-  ok_sofar = new Multiply(new Integer(756),new Integer(-290)).doCall().checkResult(new Integer(-219240)) ;
+{
+  v_0 = new Constructor(2).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(0)) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] {  }) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray()) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Ferrer")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(9)).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(8) }) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(10)).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(8) }) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
 return ok_sofar ;
 }
 ) ;
@@ -606,7 +792,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_13")) ;
-    ResultsHandler.add_result(new String("multiply"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -624,13 +810,38 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_14") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_14")) ;
 if (ok_sofar)
-  ok_sofar = new Multiply(new Integer(-729),new Integer(-331)).doCall().checkResult(new Integer(241299)) ;
+{
+  v_0 = new Constructor(3).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(4)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Herrera")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(1)) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(5)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Sanchez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(4,new String("Herrera")),new EntryImpl<Integer,String>(1,new String("Sanchez")))) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(2)) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(4,new String("Herrera")),new EntryImpl<Integer,String>(1,new String("Sanchez")))) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(1)).doCall().checkResult(new Boolean(true)) ;
 return ok_sofar ;
 }
 ) ;
@@ -647,7 +858,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_14")) ;
-    ResultsHandler.add_result(new String("multiply"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -665,13 +876,38 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_15") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_15")) ;
 if (ok_sofar)
-  ok_sofar = new Multiply(new Integer(-188),new Integer(-929)).doCall().checkResult(new Integer(174652)) ;
+{
+  v_0 = new Constructor(3).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] {  }) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(3)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(0)) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(4)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Goicoechea")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(8) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Albuixech")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(8)).doCall().checkResult(new String("Goicoechea")) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
 return ok_sofar ;
 }
 ) ;
@@ -688,7 +924,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_15")) ;
-    ResultsHandler.add_result(new String("multiply"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -706,13 +942,40 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_16") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_16")) ;
 if (ok_sofar)
-  ok_sofar = new Multiply(new Integer(862),new Integer(288)).doCall().checkResult(new Integer(248256)) ;
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Echeberria")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Benach")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Herrera")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Llorente")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(0)).doCall().checkResult(new String("Herrera")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Echeberria")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(2),new Integer(6),new Integer(0),new Integer(10),new Integer(5) }) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(0)).doCall().checkResult(new String("Herrera")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Benach")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(5)).doCall().checkResult(new Boolean(true)) ;
 return ok_sofar ;
 }
 ) ;
@@ -729,7 +992,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_16")) ;
-    ResultsHandler.add_result(new String("multiply"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -747,13 +1010,44 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_17") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_17")) ;
 if (ok_sofar)
-  ok_sofar = new Multiply(new Integer(-538),new Integer(-614)).doCall().checkResult(new Integer(330332)) ;
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] {  }) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] {  }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Rossello")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Gonzalez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(2)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Prats")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Ferrer")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Echeberria")).doCall().checkResult(new String("Prats")) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(8),new Integer(2),new Integer(10),new Integer(0) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Benach")).doCall().checkResult(new String("Gonzalez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Goicoechea")).doCall().checkResult(new String("Ferrer")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Alzaga")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -770,7 +1064,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_17")) ;
-    ResultsHandler.add_result(new String("multiply"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -788,13 +1082,44 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_18") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_18")) ;
 if (ok_sofar)
-  ok_sofar = new Multiply(new Integer(885),new Integer(332)).doCall().checkResult(new Integer(293820)) ;
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Bonet")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Fernandez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Fernandez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(5),new Integer(4),new Integer(0) }) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(5,new String("Bonet")),new EntryImpl<Integer,String>(4,new String("Fernandez")),new EntryImpl<Integer,String>(0,new String("Fernandez")))) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Rossello")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(1)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Benach")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(0)).doCall().checkResult(new String("Fernandez")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(4)).doCall().checkResult(new String("Fernandez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Rossello")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -811,7 +1136,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_18")) ;
-    ResultsHandler.add_result(new String("multiply"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -829,13 +1154,44 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_19") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_19")) ;
 if (ok_sofar)
-  ok_sofar = new Multiply(new Integer(-627),new Integer(-632)).doCall().checkResult(new Integer(396264)) ;
+{
+  v_0 = new Constructor(2).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Marin")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Navarro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Echeberria")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Alzaga")).doCall().checkResult(new String("Marin")) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(5),new Integer(1),new Integer(4) }) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(3)).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Marin")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Alzaga")).doCall().checkResult(new String("Echeberria")) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(1)).doCall().checkResult(new String("Navarro")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Rossello")).doCall().checkResult(new String("Navarro")) ;
 return ok_sofar ;
 }
 ) ;
@@ -852,7 +1208,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_19")) ;
-    ResultsHandler.add_result(new String("multiply"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -870,13 +1226,44 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_20") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_20")) ;
 if (ok_sofar)
-  ok_sofar = new Multiply(new Integer(903),new Integer(356)).doCall().checkResult(new Integer(321468)) ;
+{
+  v_0 = new Constructor(3).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Marin")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Herrera")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(8),new Integer(10) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Navarro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Boix")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(2)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(8),new Integer(10),new Integer(3),new Integer(2) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Martinez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Llorente")).doCall().checkResult(new String("Boix")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Albuixech")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Prats")).doCall().checkResult(new String("Navarro")) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(0)).doCall().checkResult(new Boolean(true)) ;
 return ok_sofar ;
 }
 ) ;
@@ -893,7 +1280,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_20")) ;
-    ResultsHandler.add_result(new String("multiply"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -911,13 +1298,44 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_21") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_21")) ;
 if (ok_sofar)
-  ok_sofar = new Multiply(new Integer(-413),new Integer(-882)).doCall().checkResult(new Integer(364266)) ;
+{
+  v_0 = new Constructor(4).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Rossello")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(7)).doCall().checkResult(new String("Rossello")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Bonet")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Marti")).doCall().checkResult(new String("Bonet")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Albuixech")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Rodriguez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(4)) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(7),new Integer(2),new Integer(8),new Integer(10) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Lopez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(0)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(8)).doCall().checkResult(new Boolean(true)) ;
 return ok_sofar ;
 }
 ) ;
@@ -934,7 +1352,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_21")) ;
-    ResultsHandler.add_result(new String("multiply"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -952,13 +1370,46 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_22") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_22")) ;
 if (ok_sofar)
-  ok_sofar = new Multiply(new Integer(749),new Integer(605)).doCall().checkResult(new Integer(453145)) ;
+{
+  v_0 = new Constructor(3).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Fernandez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Castro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(10)).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Bonet")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Gonzalez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(4)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Marin")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Marin")).doCall().checkResult(new String("Fernandez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Navarro")).doCall().checkResult(new String("Marin")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Castro")).doCall().checkResult(new String("Marin")) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(6),new Integer(8),new Integer(9),new Integer(10),new Integer(5) }) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(6),new Integer(8),new Integer(9),new Integer(10),new Integer(5) }) ;
 return ok_sofar ;
 }
 ) ;
@@ -975,7 +1426,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_22")) ;
-    ResultsHandler.add_result(new String("multiply"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -993,13 +1444,48 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_23") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_23")) ;
 if (ok_sofar)
-  ok_sofar = new Multiply(new Integer(-556),new Integer(-817)).doCall().checkResult(new Integer(454252)) ;
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Fernandez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(2)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Prats")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(10)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(2),new Integer(10) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Rodriguez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Echeberria")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Benach")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(5)) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(2)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(8)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Goicoechea")).doCall().checkResult(new String("Prats")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Marti")).doCall().checkResult(new String("Goicoechea")) ;
 return ok_sofar ;
 }
 ) ;
@@ -1016,7 +1502,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_23")) ;
-    ResultsHandler.add_result(new String("multiply"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -1034,13 +1520,48 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_24") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_24")) ;
 if (ok_sofar)
-  ok_sofar = new Multiply(new Integer(-638),new Integer(-809)).doCall().checkResult(new Integer(516142)) ;
+{
+  v_0 = new Constructor(4).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray()) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Castro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Fernandez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(8)).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(1),new Integer(5) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Goicoechea")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(1),new Integer(5),new Integer(9) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Benach")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Ferrer")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(1)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Bonet")).doCall().checkResult(new String("Ferrer")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(5)).doCall().checkResult(new String("Fernandez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Marti")).doCall().checkResult(new String("Goicoechea")) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(1),new Integer(5),new Integer(9),new Integer(2),new Integer(10) }) ;
 return ok_sofar ;
 }
 ) ;
@@ -1057,7 +1578,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_24")) ;
-    ResultsHandler.add_result(new String("multiply"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -1075,13 +1596,50 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_25") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_25")) ;
 if (ok_sofar)
-  ok_sofar = new Multiply(new Integer(970),new Integer(-986)).doCall().checkResult(new Integer(-956420)) ;
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(3)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Bonet")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(0)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(9,new String("Bonet")))) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Prats")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Alzaga")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Albuixech")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(4)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Fernandez")).doCall().checkResult(new String("Prats")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Garcia")).doCall().checkResult(new String("Bonet")) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(10)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(0)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Gonzalez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(2)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Echeberria")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -1098,7 +1656,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_25")) ;
-    ResultsHandler.add_result(new String("multiply"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -1116,11 +1674,50 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_26") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_26")) ;
+if (ok_sofar)
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] {  }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Benach")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(10) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Martinez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(10)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(10,new String("Benach")),new EntryImpl<Integer,String>(7,new String("Martinez")))) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Lopez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(10),new Integer(7),new Integer(0) }) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(0)).doCall().checkResult(new String("Lopez")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(10)).doCall().checkResult(new String("Benach")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(10)).doCall().checkResult(new String("Benach")) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Sanchez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Castro")).doCall().checkResult(new String("Lopez")) ;
 return ok_sofar ;
 }
 ) ;
@@ -1137,7 +1734,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_26")) ;
-    ResultsHandler.add_result(new String("findBottom"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -1155,13 +1752,52 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_27") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_27")) ;
 if (ok_sofar)
-  ok_sofar = new FindBottom(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(10149),new MyInteger(42437),new MyInteger(15041),new MyInteger(35350),new MyInteger(87947),new MyInteger(13813),new MyInteger(63338),new MyInteger(21415),new MyInteger(17347),new MyInteger(68489),new MyInteger(28953),new MyInteger(5787),new MyInteger(9045),new MyInteger(19767),new MyInteger(26907),new MyInteger(38232),new MyInteger(21800),new MyInteger(84656),new MyInteger(73622),new MyInteger(80198),new MyInteger(62371),new MyInteger(17427),new MyInteger(93995),new MyInteger(27474),new MyInteger(92934),new MyInteger(5164),new MyInteger(99346),new MyInteger(71762),new MyInteger(35979),new MyInteger(18183),new MyInteger(40434),new MyInteger(44505),new MyInteger(22741),new MyInteger(52192),new MyInteger(53988),new MyInteger(7167),new MyInteger(68936),new MyInteger(28391),new MyInteger(51882),new MyInteger(15973),new MyInteger(99784),new MyInteger(2614),new MyInteger(80212),new MyInteger(35707),new MyInteger(70012),new MyInteger(80538),new MyInteger(18885),new MyInteger(95709),new MyInteger(37808),new MyInteger(2028),new MyInteger(36682),new MyInteger(76536),new MyInteger(2999),new MyInteger(98855),new MyInteger(8980),new MyInteger(87832),new MyInteger(95608),new MyInteger(61227) })).doCall().checkResult(new es.upm.aedlib.Pair<es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>,Integer>(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(0),new MyInteger(2),new MyInteger(5),new MyInteger(8),new MyInteger(11),new MyInteger(16),new MyInteger(18),new MyInteger(21),new MyInteger(23),new MyInteger(25),new MyInteger(29),new MyInteger(32),new MyInteger(35),new MyInteger(37),new MyInteger(39),new MyInteger(41),new MyInteger(43),new MyInteger(46),new MyInteger(49),new MyInteger(52),new MyInteger(54),new MyInteger(57) }),new Integer(58))) ;
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(0)).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Perez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Prats")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Garcia")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(6)).doCall().checkResult(new String("Perez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Marti")).doCall().checkResult(new String("Perez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Gonzalez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Sanchez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(6),new Integer(1),new Integer(10),new Integer(4),new Integer(2) }) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(6,new String("Marti")),new EntryImpl<Integer,String>(1,new String("Prats")),new EntryImpl<Integer,String>(10,new String("Garcia")),new EntryImpl<Integer,String>(4,new String("Gonzalez")),new EntryImpl<Integer,String>(2,new String("Sanchez")))) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Herrera")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(6),new Integer(1),new Integer(10),new Integer(4),new Integer(2),new Integer(8) }) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Gonzalez")).doCall().checkResult(new String("Garcia")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Castro")).doCall().checkResult(new String("Gonzalez")) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(6),new Integer(1),new Integer(10),new Integer(4),new Integer(2),new Integer(8) }) ;
 return ok_sofar ;
 }
 ) ;
@@ -1178,7 +1814,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_27")) ;
-    ResultsHandler.add_result(new String("findBottom"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -1196,13 +1832,52 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_28") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_28")) ;
 if (ok_sofar)
-  ok_sofar = new FindBottom(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(12722),new MyInteger(12530),new MyInteger(33086),new MyInteger(81853),new MyInteger(48302),new MyInteger(38312),new MyInteger(68929),new MyInteger(53210),new MyInteger(67405),new MyInteger(72857),new MyInteger(7268),new MyInteger(64263),new MyInteger(80798),new MyInteger(82423),new MyInteger(64764),new MyInteger(36034),new MyInteger(97097),new MyInteger(98847),new MyInteger(90844),new MyInteger(69441),new MyInteger(66172),new MyInteger(82489),new MyInteger(13317),new MyInteger(2355),new MyInteger(41172),new MyInteger(53626),new MyInteger(54873) })).doCall().checkResult(new es.upm.aedlib.Pair<es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>,Integer>(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(1),new MyInteger(5),new MyInteger(7),new MyInteger(10),new MyInteger(15),new MyInteger(20),new MyInteger(23) }),new Integer(27))) ;
+{
+  v_0 = new Constructor(3).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray()) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Rodriguez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(8)).doCall().checkResult(new String("Rodriguez")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(8)).doCall().checkResult(new String("Rodriguez")) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(8)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Rossello")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Sanchez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(7)).doCall().checkResult(new String("Sanchez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Rossello")).doCall().checkResult(new String("Sanchez")) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(8),new Integer(5),new Integer(7) }) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(3)) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(8,new String("Rodriguez")),new EntryImpl<Integer,String>(5,new String("Rossello")),new EntryImpl<Integer,String>(7,new String("Rossello")))) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(8),new Integer(5),new Integer(7) }) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(7)).doCall().checkResult(new String("Rossello")) ;
 return ok_sofar ;
 }
 ) ;
@@ -1219,7 +1894,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_28")) ;
-    ResultsHandler.add_result(new String("findBottom"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -1237,13 +1912,56 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_29") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_29")) ;
 if (ok_sofar)
-  ok_sofar = new FindBottom(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(14339),new MyInteger(87621),new MyInteger(50683),new MyInteger(98916),new MyInteger(1496),new MyInteger(1348),new MyInteger(71602),new MyInteger(67997),new MyInteger(6023),new MyInteger(69217),new MyInteger(53227),new MyInteger(54077),new MyInteger(90732),new MyInteger(92606),new MyInteger(62539),new MyInteger(85313),new MyInteger(19890),new MyInteger(470),new MyInteger(14563),new MyInteger(68346),new MyInteger(9741),new MyInteger(5223),new MyInteger(47219),new MyInteger(20587) })).doCall().checkResult(new es.upm.aedlib.Pair<es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>,Integer>(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(0),new MyInteger(2),new MyInteger(5),new MyInteger(8),new MyInteger(10),new MyInteger(14),new MyInteger(17),new MyInteger(21),new MyInteger(23) }),new Integer(24))) ;
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(9)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Benach")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Castro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Boix")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(3)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Alzaga")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(8)).doCall().checkResult(new String("Boix")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(1)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(3),new Integer(10),new Integer(8),new Integer(9) }) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(10)).doCall().checkResult(new String("Castro")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Marti")).doCall().checkResult(new String("Alzaga")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Garcia")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Prats")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Garcia")).doCall().checkResult(new String("Benach")) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(9)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(6)).doCall().checkResult(new String("Prats")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Goicoechea")).doCall().checkResult(new String("Prats")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Perez")).doCall().checkResult(new String("Boix")) ;
 return ok_sofar ;
 }
 ) ;
@@ -1260,7 +1978,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_29")) ;
-    ResultsHandler.add_result(new String("findBottom"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -1278,13 +1996,56 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_30") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_30")) ;
 if (ok_sofar)
-  ok_sofar = new FindBottom(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(17033),new MyInteger(84094),new MyInteger(85919),new MyInteger(24428),new MyInteger(63331),new MyInteger(36271),new MyInteger(25706),new MyInteger(20346),new MyInteger(5118),new MyInteger(65546),new MyInteger(8682),new MyInteger(52411),new MyInteger(44846),new MyInteger(92031),new MyInteger(26293),new MyInteger(6653),new MyInteger(34421),new MyInteger(66333),new MyInteger(13673),new MyInteger(38371),new MyInteger(34589),new MyInteger(74737),new MyInteger(23781),new MyInteger(35653),new MyInteger(38147),new MyInteger(74501),new MyInteger(23368),new MyInteger(76521),new MyInteger(25490),new MyInteger(56811),new MyInteger(74168),new MyInteger(97406),new MyInteger(26425),new MyInteger(5548),new MyInteger(92499),new MyInteger(43136),new MyInteger(75850),new MyInteger(1540),new MyInteger(72221),new MyInteger(70840),new MyInteger(17710),new MyInteger(58545),new MyInteger(36147),new MyInteger(97775),new MyInteger(56609),new MyInteger(3539),new MyInteger(849),new MyInteger(31136),new MyInteger(93007),new MyInteger(4329),new MyInteger(85202),new MyInteger(65382),new MyInteger(96130),new MyInteger(58985),new MyInteger(29070),new MyInteger(18695),new MyInteger(2260),new MyInteger(51549),new MyInteger(17360),new MyInteger(82745),new MyInteger(21305),new MyInteger(5560),new MyInteger(79310),new MyInteger(58822) })).doCall().checkResult(new es.upm.aedlib.Pair<es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>,Integer>(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(0),new MyInteger(3),new MyInteger(8),new MyInteger(10),new MyInteger(12),new MyInteger(15),new MyInteger(18),new MyInteger(20),new MyInteger(22),new MyInteger(26),new MyInteger(28),new MyInteger(33),new MyInteger(35),new MyInteger(37),new MyInteger(40),new MyInteger(42),new MyInteger(46),new MyInteger(49),new MyInteger(51),new MyInteger(56),new MyInteger(58),new MyInteger(61),new MyInteger(63) }),new Integer(64))) ;
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Navarro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(0)).doCall().checkResult(new String("Navarro")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Fernandez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(0)).doCall().checkResult(new String("Navarro")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(7)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(0,new String("Navarro")),new EntryImpl<Integer,String>(9,new String("Fernandez")))) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Garcia")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(0),new Integer(9),new Integer(2) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Navarro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Sanchez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(10)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(0),new Integer(9),new Integer(2),new Integer(8),new Integer(1) }) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(9)).doCall().checkResult(new String("Fernandez")) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Castro")).doCall().checkResult(new String("Garcia")) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(5)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Castro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Albuixech")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -1301,7 +2062,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_30")) ;
-    ResultsHandler.add_result(new String("findBottom"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -1319,13 +2080,58 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_31") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_31")) ;
 if (ok_sofar)
-  ok_sofar = new FindBottom(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(18727),new MyInteger(11751),new MyInteger(34809),new MyInteger(78403),new MyInteger(12151),new MyInteger(48758),new MyInteger(60107),new MyInteger(73965),new MyInteger(66517),new MyInteger(80892),new MyInteger(81863),new MyInteger(67809),new MyInteger(83927),new MyInteger(38759),new MyInteger(7000),new MyInteger(8213),new MyInteger(40753),new MyInteger(79823),new MyInteger(73521),new MyInteger(61756),new MyInteger(38712),new MyInteger(95177),new MyInteger(82535),new MyInteger(28653),new MyInteger(22211),new MyInteger(74869),new MyInteger(36916),new MyInteger(62806),new MyInteger(31433),new MyInteger(24388),new MyInteger(77542),new MyInteger(17910),new MyInteger(33477),new MyInteger(12613),new MyInteger(22139),new MyInteger(19526),new MyInteger(10692),new MyInteger(1665),new MyInteger(34188),new MyInteger(72835),new MyInteger(93955),new MyInteger(35134),new MyInteger(45456),new MyInteger(60454),new MyInteger(5960),new MyInteger(80956),new MyInteger(48886),new MyInteger(91111),new MyInteger(77870),new MyInteger(21488),new MyInteger(4191),new MyInteger(74943),new MyInteger(11900),new MyInteger(43091),new MyInteger(60325),new MyInteger(9966),new MyInteger(89483),new MyInteger(14509),new MyInteger(24972),new MyInteger(59234),new MyInteger(83774),new MyInteger(74368),new MyInteger(92316),new MyInteger(63087),new MyInteger(96821),new MyInteger(70244),new MyInteger(76497),new MyInteger(710),new MyInteger(12686),new MyInteger(31887) })).doCall().checkResult(new es.upm.aedlib.Pair<es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>,Integer>(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(1),new MyInteger(4),new MyInteger(8),new MyInteger(11),new MyInteger(14),new MyInteger(20),new MyInteger(24),new MyInteger(26),new MyInteger(29),new MyInteger(31),new MyInteger(33),new MyInteger(37),new MyInteger(41),new MyInteger(44),new MyInteger(46),new MyInteger(50),new MyInteger(52),new MyInteger(55),new MyInteger(57),new MyInteger(61),new MyInteger(63),new MyInteger(65),new MyInteger(67) }),new Integer(70))) ;
+{
+  v_0 = new Constructor(4).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(1)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray()) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(9)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Goicoechea")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Garcia")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(2)) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(10),new Integer(9) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Navarro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Albuixech")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Garcia")).doCall().checkResult(new String("Garcia")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Herrera")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Marin")).doCall().checkResult(new String("Herrera")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Rodriguez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(5)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(6)) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(6)) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(10),new Integer(9),new Integer(0),new Integer(5),new Integer(4),new Integer(6) }) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(2)).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Alzaga")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -1342,7 +2148,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_31")) ;
-    ResultsHandler.add_result(new String("findBottom"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -1360,13 +2166,58 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_32") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_32")) ;
 if (ok_sofar)
-  ok_sofar = new FindBottom(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(22949),new MyInteger(66724),new MyInteger(15078),new MyInteger(98194),new MyInteger(68502),new MyInteger(79913),new MyInteger(62497),new MyInteger(86779),new MyInteger(76569),new MyInteger(80789),new MyInteger(52096),new MyInteger(17218),new MyInteger(64566) })).doCall().checkResult(new es.upm.aedlib.Pair<es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>,Integer>(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(0),new MyInteger(2),new MyInteger(4),new MyInteger(6),new MyInteger(8),new MyInteger(11) }),new Integer(13))) ;
+{
+  v_0 = new Constructor(4).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Martinez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Benach")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(2)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Garcia")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Llorente")).doCall().checkResult(new String("Martinez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Alzaga")).doCall().checkResult(new String("Llorente")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(4)).doCall().checkResult(new String("Garcia")) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(3)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Echeberria")).doCall().checkResult(new String("Garcia")) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(6)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(6),new Integer(2),new Integer(4) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Marti")).doCall().checkResult(new String("Alzaga")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(4)).doCall().checkResult(new String("Echeberria")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Rodriguez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(6)).doCall().checkResult(new String("Marti")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Llorente")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(10)).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Gonzalez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Castro")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -1383,7 +2234,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_32")) ;
-    ResultsHandler.add_result(new String("findBottom"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -1401,13 +2252,58 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_33") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_33")) ;
 if (ok_sofar)
-  ok_sofar = new FindBottom(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(25691),new MyInteger(11369),new MyInteger(46717),new MyInteger(35562),new MyInteger(43357),new MyInteger(1779),new MyInteger(58790),new MyInteger(71155),new MyInteger(86931),new MyInteger(37600),new MyInteger(62164),new MyInteger(82122),new MyInteger(79705),new MyInteger(85954),new MyInteger(93739),new MyInteger(51152),new MyInteger(66821),new MyInteger(65485),new MyInteger(82665),new MyInteger(79656),new MyInteger(83345),new MyInteger(84742),new MyInteger(2416),new MyInteger(76537),new MyInteger(93784),new MyInteger(71242),new MyInteger(64100),new MyInteger(64775),new MyInteger(70940),new MyInteger(62658),new MyInteger(39873),new MyInteger(80946),new MyInteger(21666),new MyInteger(99246),new MyInteger(30207),new MyInteger(85116),new MyInteger(94000),new MyInteger(27775),new MyInteger(84790),new MyInteger(27779),new MyInteger(54876),new MyInteger(76052),new MyInteger(70790),new MyInteger(86467),new MyInteger(17386),new MyInteger(87671),new MyInteger(64091),new MyInteger(31406),new MyInteger(77919),new MyInteger(35211),new MyInteger(17265),new MyInteger(77568),new MyInteger(43033),new MyInteger(95333),new MyInteger(55957),new MyInteger(14394),new MyInteger(67790),new MyInteger(83117),new MyInteger(24343),new MyInteger(78520),new MyInteger(45789),new MyInteger(17406),new MyInteger(3458),new MyInteger(76621),new MyInteger(36844),new MyInteger(58349),new MyInteger(98181),new MyInteger(61140),new MyInteger(20528),new MyInteger(65430),new MyInteger(85880),new MyInteger(58047),new MyInteger(85246),new MyInteger(38615),new MyInteger(2740),new MyInteger(47572),new MyInteger(5942),new MyInteger(46035),new MyInteger(83465),new MyInteger(47696) })).doCall().checkResult(new es.upm.aedlib.Pair<es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>,Integer>(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(1),new MyInteger(3),new MyInteger(5),new MyInteger(9),new MyInteger(12),new MyInteger(15),new MyInteger(17),new MyInteger(19),new MyInteger(22),new MyInteger(26),new MyInteger(30),new MyInteger(32),new MyInteger(34),new MyInteger(37),new MyInteger(39),new MyInteger(42),new MyInteger(44),new MyInteger(47),new MyInteger(50),new MyInteger(52),new MyInteger(55),new MyInteger(58),new MyInteger(62),new MyInteger(64),new MyInteger(68),new MyInteger(71),new MyInteger(74),new MyInteger(76),new MyInteger(79) }),new Integer(80))) ;
+{
+  v_0 = new Constructor(5).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Goicoechea")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(10)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Sanchez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Martinez")).doCall().checkResult(new String("Sanchez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Navarro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Rossello")).doCall().checkResult(new String("Martinez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Martinez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Marin")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(10),new Integer(8),new Integer(5),new Integer(1),new Integer(7) }) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(5)) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(8)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(10,new String("Goicoechea")),new EntryImpl<Integer,String>(8,new String("Rossello")),new EntryImpl<Integer,String>(5,new String("Navarro")),new EntryImpl<Integer,String>(1,new String("Martinez")),new EntryImpl<Integer,String>(7,new String("Marin")))) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(5)) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(1)).doCall().checkResult(new String("Martinez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Gonzalez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Prats")).doCall().checkResult(new String("Goicoechea")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Echeberria")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -1424,7 +2320,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_33")) ;
-    ResultsHandler.add_result(new String("findBottom"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -1442,13 +2338,62 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_34") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_34")) ;
 if (ok_sofar)
-  ok_sofar = new FindBottom(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(27096),new MyInteger(11821),new MyInteger(78861),new MyInteger(60593),new MyInteger(50823),new MyInteger(44769),new MyInteger(37243),new MyInteger(52587),new MyInteger(72655),new MyInteger(13726),new MyInteger(78845),new MyInteger(40728),new MyInteger(96827),new MyInteger(56429),new MyInteger(44818),new MyInteger(15133),new MyInteger(19965),new MyInteger(27098),new MyInteger(86906),new MyInteger(28689),new MyInteger(68049),new MyInteger(74134),new MyInteger(50058),new MyInteger(2898),new MyInteger(37685),new MyInteger(51570),new MyInteger(45726),new MyInteger(69597),new MyInteger(20675),new MyInteger(45323),new MyInteger(17020),new MyInteger(13624),new MyInteger(24026),new MyInteger(60436),new MyInteger(63891),new MyInteger(84322),new MyInteger(3551),new MyInteger(10885),new MyInteger(20415),new MyInteger(52555),new MyInteger(58994),new MyInteger(73080),new MyInteger(14645),new MyInteger(85104),new MyInteger(39839),new MyInteger(44894),new MyInteger(95188),new MyInteger(54104),new MyInteger(91132),new MyInteger(22160),new MyInteger(70993),new MyInteger(22173),new MyInteger(88482),new MyInteger(34075),new MyInteger(95619),new MyInteger(75798),new MyInteger(81262),new MyInteger(8803),new MyInteger(72657),new MyInteger(12808),new MyInteger(12664),new MyInteger(56414),new MyInteger(44775),new MyInteger(28020),new MyInteger(2395),new MyInteger(73933),new MyInteger(11196),new MyInteger(76436),new MyInteger(27875),new MyInteger(45605),new MyInteger(73668),new MyInteger(70019) })).doCall().checkResult(new es.upm.aedlib.Pair<es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>,Integer>(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(1),new MyInteger(6),new MyInteger(9),new MyInteger(11),new MyInteger(15),new MyInteger(19),new MyInteger(23),new MyInteger(26),new MyInteger(28),new MyInteger(31),new MyInteger(36),new MyInteger(42),new MyInteger(44),new MyInteger(47),new MyInteger(49),new MyInteger(51),new MyInteger(53),new MyInteger(55),new MyInteger(57),new MyInteger(60),new MyInteger(64),new MyInteger(66),new MyInteger(68),new MyInteger(71) }),new Integer(72))) ;
+{
+  v_0 = new Constructor(3).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Herrera")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Sanchez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Rodriguez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(2)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Lopez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Sanchez")).doCall().checkResult(new String("Lopez")) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Rossello")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Perez")).doCall().checkResult(new String("Rossello")) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(10),new Integer(3),new Integer(2),new Integer(5),new Integer(8) }) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(10,new String("Herrera")),new EntryImpl<Integer,String>(3,new String("Sanchez")),new EntryImpl<Integer,String>(2,new String("Rodriguez")),new EntryImpl<Integer,String>(5,new String("Sanchez")),new EntryImpl<Integer,String>(8,new String("Perez")))) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Herrera")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(3)).doCall().checkResult(new String("Sanchez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Goicoechea")).doCall().checkResult(new String("Herrera")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(10)).doCall().checkResult(new String("Herrera")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Martinez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Bonet")).doCall().checkResult(new String("Sanchez")) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(10,new String("Herrera")),new EntryImpl<Integer,String>(3,new String("Bonet")),new EntryImpl<Integer,String>(2,new String("Rodriguez")),new EntryImpl<Integer,String>(5,new String("Sanchez")),new EntryImpl<Integer,String>(8,new String("Perez")),new EntryImpl<Integer,String>(6,new String("Goicoechea")),new EntryImpl<Integer,String>(1,new String("Martinez")))) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Perez")).doCall().checkResult(new String("Rodriguez")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(6)).doCall().checkResult(new String("Goicoechea")) ;
 return ok_sofar ;
 }
 ) ;
@@ -1465,7 +2410,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_34")) ;
-    ResultsHandler.add_result(new String("findBottom"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -1483,13 +2428,64 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_35") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_35")) ;
 if (ok_sofar)
-  ok_sofar = new FindBottom(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(27955),new MyInteger(26134),new MyInteger(4712),new MyInteger(60907),new MyInteger(87197),new MyInteger(67055),new MyInteger(63776),new MyInteger(37349),new MyInteger(46095),new MyInteger(20106),new MyInteger(96966),new MyInteger(7660),new MyInteger(9767),new MyInteger(69453),new MyInteger(99057),new MyInteger(779),new MyInteger(35615),new MyInteger(17569),new MyInteger(85024),new MyInteger(80711),new MyInteger(34010),new MyInteger(40084),new MyInteger(30762),new MyInteger(69572),new MyInteger(73646),new MyInteger(87623),new MyInteger(99219),new MyInteger(33397),new MyInteger(45200),new MyInteger(37060),new MyInteger(94567),new MyInteger(33339),new MyInteger(68018),new MyInteger(8838),new MyInteger(87682),new MyInteger(28261),new MyInteger(38505),new MyInteger(59749),new MyInteger(71679),new MyInteger(9936),new MyInteger(50659),new MyInteger(27568),new MyInteger(58134),new MyInteger(8148),new MyInteger(14741),new MyInteger(56666),new MyInteger(62319),new MyInteger(49664),new MyInteger(81722),new MyInteger(75447),new MyInteger(24092),new MyInteger(26831),new MyInteger(35103),new MyInteger(50926),new MyInteger(60435),new MyInteger(9527),new MyInteger(95447),new MyInteger(43532),new MyInteger(52319),new MyInteger(5327),new MyInteger(25313),new MyInteger(98326),new MyInteger(87837),new MyInteger(22223),new MyInteger(102),new MyInteger(4756),new MyInteger(33074),new MyInteger(66220),new MyInteger(83081),new MyInteger(93940),new MyInteger(72908),new MyInteger(34625),new MyInteger(14584),new MyInteger(25127),new MyInteger(50884),new MyInteger(93260) })).doCall().checkResult(new es.upm.aedlib.Pair<es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>,Integer>(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(2),new MyInteger(7),new MyInteger(9),new MyInteger(11),new MyInteger(15),new MyInteger(17),new MyInteger(20),new MyInteger(22),new MyInteger(27),new MyInteger(29),new MyInteger(31),new MyInteger(33),new MyInteger(35),new MyInteger(39),new MyInteger(41),new MyInteger(43),new MyInteger(47),new MyInteger(50),new MyInteger(55),new MyInteger(57),new MyInteger(59),new MyInteger(64),new MyInteger(72) }),new Integer(76))) ;
+{
+  v_0 = new Constructor(2).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(0)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Benach")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(4) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Perez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Boix")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Navarro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(7)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(4)) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(10)).doCall().checkResult(new String("Perez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Navarro")).doCall().checkResult(new String("Navarro")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Goicoechea")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(4),new Integer(10),new Integer(0),new Integer(2),new Integer(8) }) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(4)).doCall().checkResult(new String("Benach")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(4)).doCall().checkResult(new String("Benach")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Castro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Martinez")).doCall().checkResult(new String("Perez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Boix")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Lopez")).doCall().checkResult(new String("Boix")) ;
 return ok_sofar ;
 }
 ) ;
@@ -1506,7 +2502,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_35")) ;
-    ResultsHandler.add_result(new String("findBottom"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -1524,13 +2520,66 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_36") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_36")) ;
 if (ok_sofar)
-  ok_sofar = new FindBottom(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(32883),new MyInteger(37618),new MyInteger(57788),new MyInteger(94519),new MyInteger(1046),new MyInteger(56150),new MyInteger(35948),new MyInteger(12806),new MyInteger(2274),new MyInteger(34940),new MyInteger(92210),new MyInteger(12597),new MyInteger(77732),new MyInteger(34049),new MyInteger(81515),new MyInteger(28279),new MyInteger(80870),new MyInteger(44443),new MyInteger(92729),new MyInteger(36380),new MyInteger(52413),new MyInteger(76634),new MyInteger(60758),new MyInteger(6113),new MyInteger(97703),new MyInteger(8932),new MyInteger(65353),new MyInteger(45024),new MyInteger(59614),new MyInteger(87862),new MyInteger(93821),new MyInteger(51656),new MyInteger(86710),new MyInteger(32623),new MyInteger(53469),new MyInteger(29781),new MyInteger(15490),new MyInteger(76962),new MyInteger(56379),new MyInteger(59227),new MyInteger(84889),new MyInteger(54348),new MyInteger(52488),new MyInteger(65204),new MyInteger(25093),new MyInteger(29197),new MyInteger(78110),new MyInteger(81329),new MyInteger(47231),new MyInteger(50769),new MyInteger(76361),new MyInteger(82934),new MyInteger(49630),new MyInteger(80023),new MyInteger(60938),new MyInteger(75145),new MyInteger(79496),new MyInteger(23013),new MyInteger(64894),new MyInteger(64502),new MyInteger(18351),new MyInteger(97222),new MyInteger(28231),new MyInteger(13851),new MyInteger(30258),new MyInteger(89531),new MyInteger(58433),new MyInteger(21069),new MyInteger(69715),new MyInteger(49412),new MyInteger(13057),new MyInteger(7162),new MyInteger(35220),new MyInteger(12359),new MyInteger(3724),new MyInteger(2601),new MyInteger(35822),new MyInteger(82292),new MyInteger(29203),new MyInteger(54700),new MyInteger(84281) })).doCall().checkResult(new es.upm.aedlib.Pair<es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>,Integer>(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(0),new MyInteger(4),new MyInteger(8),new MyInteger(11),new MyInteger(13),new MyInteger(15),new MyInteger(17),new MyInteger(19),new MyInteger(23),new MyInteger(25),new MyInteger(27),new MyInteger(31),new MyInteger(33),new MyInteger(36),new MyInteger(38),new MyInteger(42),new MyInteger(44),new MyInteger(48),new MyInteger(52),new MyInteger(54),new MyInteger(57),new MyInteger(60),new MyInteger(63),new MyInteger(67),new MyInteger(71),new MyInteger(75),new MyInteger(78) }),new Integer(81))) ;
+{
+  v_0 = new Constructor(2).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray()) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(7)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Goicoechea")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Benach")).doCall().checkResult(new String("Goicoechea")) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(0,new String("Benach")))) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Herrera")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Lopez")).doCall().checkResult(new String("Herrera")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Echeberria")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(0,new String("Benach")),new EntryImpl<Integer,String>(7,new String("Lopez")),new EntryImpl<Integer,String>(1,new String("Echeberria")))) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(7)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Fernandez")).doCall().checkResult(new String("Echeberria")) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(0,new String("Benach")),new EntryImpl<Integer,String>(7,new String("Lopez")),new EntryImpl<Integer,String>(1,new String("Fernandez")))) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Perez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(0),new Integer(7),new Integer(1),new Integer(3) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Alzaga")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Alzaga")).doCall().checkResult(new String("Perez")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(10)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(0),new Integer(7),new Integer(1),new Integer(3),new Integer(6) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Sanchez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Navarro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Marin")).doCall().checkResult(new String("Navarro")) ;
 return ok_sofar ;
 }
 ) ;
@@ -1547,7 +2596,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_36")) ;
-    ResultsHandler.add_result(new String("findBottom"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -1565,13 +2614,74 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_37") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_37")) ;
 if (ok_sofar)
-  ok_sofar = new FindBottom(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(51688),new MyInteger(95209),new MyInteger(30034),new MyInteger(58750),new MyInteger(3040),new MyInteger(71132),new MyInteger(74280),new MyInteger(7538),new MyInteger(39151),new MyInteger(70071),new MyInteger(93568),new MyInteger(80475),new MyInteger(13478),new MyInteger(29413),new MyInteger(24824),new MyInteger(13255),new MyInteger(43607),new MyInteger(53488),new MyInteger(19452),new MyInteger(3768),new MyInteger(65173),new MyInteger(77796),new MyInteger(14660),new MyInteger(70895),new MyInteger(5085),new MyInteger(62200),new MyInteger(97278),new MyInteger(27989),new MyInteger(4228),new MyInteger(86543),new MyInteger(60534),new MyInteger(38708),new MyInteger(64809),new MyInteger(42153),new MyInteger(66659),new MyInteger(26168),new MyInteger(51603),new MyInteger(26179),new MyInteger(79417),new MyInteger(35797),new MyInteger(69780),new MyInteger(37476),new MyInteger(35543),new MyInteger(75628),new MyInteger(37348),new MyInteger(35948),new MyInteger(60569),new MyInteger(22989),new MyInteger(22184),new MyInteger(32210),new MyInteger(52503),new MyInteger(38653),new MyInteger(76593),new MyInteger(29952),new MyInteger(57407),new MyInteger(28051),new MyInteger(44401),new MyInteger(54262),new MyInteger(54309),new MyInteger(46806),new MyInteger(81981),new MyInteger(40824),new MyInteger(36302),new MyInteger(92103),new MyInteger(34966),new MyInteger(65071),new MyInteger(95133),new MyInteger(67878),new MyInteger(6301),new MyInteger(76541),new MyInteger(45755),new MyInteger(4539),new MyInteger(46518),new MyInteger(48490),new MyInteger(46779),new MyInteger(47859),new MyInteger(23050),new MyInteger(72697),new MyInteger(53116),new MyInteger(39630),new MyInteger(68827),new MyInteger(82874),new MyInteger(40006),new MyInteger(14627),new MyInteger(22002),new MyInteger(97540),new MyInteger(35674),new MyInteger(7027),new MyInteger(8107),new MyInteger(22195),new MyInteger(1546),new MyInteger(9713) })).doCall().checkResult(new es.upm.aedlib.Pair<es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>,Integer>(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(0),new MyInteger(2),new MyInteger(4),new MyInteger(7),new MyInteger(12),new MyInteger(15),new MyInteger(19),new MyInteger(22),new MyInteger(24),new MyInteger(28),new MyInteger(31),new MyInteger(33),new MyInteger(35),new MyInteger(37),new MyInteger(39),new MyInteger(42),new MyInteger(45),new MyInteger(48),new MyInteger(51),new MyInteger(53),new MyInteger(55),new MyInteger(59),new MyInteger(62),new MyInteger(64),new MyInteger(68),new MyInteger(71),new MyInteger(74),new MyInteger(76),new MyInteger(79),new MyInteger(83),new MyInteger(87),new MyInteger(90) }),new Integer(92))) ;
+{
+  v_0 = new Constructor(2).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Marin")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Llorente")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Goicoechea")).doCall().checkResult(new String("Llorente")) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(10),new Integer(3) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Lopez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Prats")).doCall().checkResult(new String("Lopez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Echeberria")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(1)).doCall().checkResult(new String("Echeberria")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Benach")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Echeberria")).doCall().checkResult(new String("Echeberria")) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(1)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Fernandez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(10,new String("Marin")),new EntryImpl<Integer,String>(3,new String("Goicoechea")),new EntryImpl<Integer,String>(7,new String("Prats")),new EntryImpl<Integer,String>(1,new String("Echeberria")),new EntryImpl<Integer,String>(4,new String("Benach")),new EntryImpl<Integer,String>(9,new String("Fernandez")))) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(10)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Fernandez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Sanchez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Rodriguez")).doCall().checkResult(new String("Echeberria")) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Llorente")).doCall().checkResult(new String("Rodriguez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Llorente")).doCall().checkResult(new String("Sanchez")) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(10),new Integer(3),new Integer(7),new Integer(1),new Integer(4),new Integer(9),new Integer(0),new Integer(5) }) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(10),new Integer(3),new Integer(7),new Integer(1),new Integer(4),new Integer(9),new Integer(0),new Integer(5) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Martinez")).doCall().checkResult(new String("Llorente")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Sanchez")).doCall().checkResult(new String("Martinez")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(5)).doCall().checkResult(new String("Llorente")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Alzaga")).doCall().checkResult(new String("Goicoechea")) ;
 return ok_sofar ;
 }
 ) ;
@@ -1588,7 +2698,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_37")) ;
-    ResultsHandler.add_result(new String("findBottom"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -1606,13 +2716,78 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_38") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_38")) ;
 if (ok_sofar)
-  ok_sofar = new FindBottom(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(54602),new MyInteger(23514),new MyInteger(99996),new MyInteger(1901),new MyInteger(34986),new MyInteger(30992),new MyInteger(25533),new MyInteger(96114),new MyInteger(50333),new MyInteger(3723),new MyInteger(74691),new MyInteger(82534),new MyInteger(4567),new MyInteger(30502),new MyInteger(31338),new MyInteger(38041),new MyInteger(21814),new MyInteger(21635),new MyInteger(56343),new MyInteger(24526),new MyInteger(56157),new MyInteger(1164),new MyInteger(59081),new MyInteger(88740),new MyInteger(8198),new MyInteger(67305),new MyInteger(21257),new MyInteger(80752),new MyInteger(72981),new MyInteger(98935),new MyInteger(56615),new MyInteger(32192),new MyInteger(41506),new MyInteger(71200),new MyInteger(23715),new MyInteger(21379),new MyInteger(19349),new MyInteger(81918),new MyInteger(63637),new MyInteger(57336),new MyInteger(9932),new MyInteger(60775),new MyInteger(65),new MyInteger(82760),new MyInteger(22069),new MyInteger(97962),new MyInteger(51620),new MyInteger(4755),new MyInteger(67658),new MyInteger(58167),new MyInteger(19997),new MyInteger(23147),new MyInteger(57352),new MyInteger(4221),new MyInteger(39567),new MyInteger(92457),new MyInteger(178),new MyInteger(90911),new MyInteger(30667),new MyInteger(8382),new MyInteger(94144),new MyInteger(96605),new MyInteger(60849),new MyInteger(25120),new MyInteger(34095),new MyInteger(73071),new MyInteger(98797),new MyInteger(66229),new MyInteger(51872),new MyInteger(16199),new MyInteger(24856),new MyInteger(50149),new MyInteger(23260),new MyInteger(38055),new MyInteger(86577),new MyInteger(31640),new MyInteger(74938),new MyInteger(92170),new MyInteger(96189),new MyInteger(73949) })).doCall().checkResult(new es.upm.aedlib.Pair<es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>,Integer>(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(1),new MyInteger(3),new MyInteger(6),new MyInteger(9),new MyInteger(12),new MyInteger(17),new MyInteger(19),new MyInteger(21),new MyInteger(24),new MyInteger(26),new MyInteger(28),new MyInteger(31),new MyInteger(36),new MyInteger(40),new MyInteger(42),new MyInteger(44),new MyInteger(47),new MyInteger(50),new MyInteger(53),new MyInteger(56),new MyInteger(59),new MyInteger(63),new MyInteger(69),new MyInteger(72),new MyInteger(75),new MyInteger(79) }),new Integer(80))) ;
+{
+  v_0 = new Constructor(2).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(8)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Herrera")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(2,new String("Herrera")))) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Rodriguez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(2),new Integer(8) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Rodriguez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Lopez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Llorente")).doCall().checkResult(new String("Herrera")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(0)).doCall().checkResult(new String("Rodriguez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Herrera")).doCall().checkResult(new String("Llorente")) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(5)).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(7)).doCall().checkResult(new String("Lopez")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(7)).doCall().checkResult(new String("Lopez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Albuixech")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Echeberria")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Benach")).doCall().checkResult(new String("Rodriguez")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(1)).doCall().checkResult(new String("Echeberria")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Llorente")).doCall().checkResult(new String("Albuixech")) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(6)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Bonet")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Echeberria")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Rossello")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Sanchez")).doCall().checkResult(new String("Echeberria")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(9)).doCall().checkResult(new String("Sanchez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Castro")).doCall().checkResult(new String("Llorente")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(8)).doCall().checkResult(new String("Rodriguez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Castro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Lopez")).doCall().checkResult(new String("Bonet")) ;
 return ok_sofar ;
 }
 ) ;
@@ -1629,7 +2804,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_38")) ;
-    ResultsHandler.add_result(new String("findBottom"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -1647,13 +2822,106 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_39") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_39")) ;
 if (ok_sofar)
-  ok_sofar = new FindBottom(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(63409),new MyInteger(76191),new MyInteger(12337),new MyInteger(84810),new MyInteger(49814),new MyInteger(42736),new MyInteger(81651),new MyInteger(62560),new MyInteger(40403),new MyInteger(94196),new MyInteger(35023),new MyInteger(95941),new MyInteger(8254),new MyInteger(82216),new MyInteger(92863),new MyInteger(87279),new MyInteger(88895),new MyInteger(25410),new MyInteger(50736),new MyInteger(47366),new MyInteger(72100),new MyInteger(16691),new MyInteger(99991),new MyInteger(55372),new MyInteger(98835),new MyInteger(95971),new MyInteger(10672),new MyInteger(83788),new MyInteger(5922),new MyInteger(71895),new MyInteger(43542),new MyInteger(98492),new MyInteger(39768),new MyInteger(58827),new MyInteger(56700) })).doCall().checkResult(new es.upm.aedlib.Pair<es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>,Integer>(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(0),new MyInteger(2),new MyInteger(5),new MyInteger(8),new MyInteger(10),new MyInteger(12),new MyInteger(15),new MyInteger(17),new MyInteger(19),new MyInteger(21),new MyInteger(23),new MyInteger(26),new MyInteger(28),new MyInteger(30),new MyInteger(32),new MyInteger(34) }),new Integer(35))) ;
+{
+  v_0 = new Constructor(6).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] {  }) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(0)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Herrera")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Marti")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(4)).doCall().checkResult(new String("Marti")) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(10),new Integer(4) }) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Martinez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Lopez")).doCall().checkResult(new String("Martinez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Prats")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(4)).doCall().checkResult(new String("Marti")) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Gonzalez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Gonzalez")).doCall().checkResult(new String("Gonzalez")) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Goicoechea")).doCall().checkResult(new String("Marti")) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(6)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(10),new Integer(4),new Integer(0),new Integer(9),new Integer(6) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Castro")).doCall().checkResult(new String("Goicoechea")) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(10),new Integer(4),new Integer(0),new Integer(9),new Integer(6) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Sanchez")).doCall().checkResult(new String("Lopez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Echeberria")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Garcia")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(10),new Integer(4),new Integer(0),new Integer(9),new Integer(6),new Integer(7),new Integer(2) }) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(10),new Integer(4),new Integer(0),new Integer(9),new Integer(6),new Integer(7),new Integer(2) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Rossello")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Rodriguez")).doCall().checkResult(new String("Rossello")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Echeberria")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Garcia")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Lopez")).doCall().checkResult(new String("Prats")) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Sanchez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Lopez")).doCall().checkResult(new String("Garcia")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Bonet")).doCall().checkResult(new String("Echeberria")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Ferrer")).doCall().checkResult(new String("Bonet")) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(10,new String("Herrera")),new EntryImpl<Integer,String>(4,new String("Castro")),new EntryImpl<Integer,String>(0,new String("Sanchez")),new EntryImpl<Integer,String>(9,new String("Lopez")),new EntryImpl<Integer,String>(6,new String("Gonzalez")),new EntryImpl<Integer,String>(7,new String("Ferrer")),new EntryImpl<Integer,String>(2,new String("Lopez")),new EntryImpl<Integer,String>(3,new String("Rodriguez")),new EntryImpl<Integer,String>(8,new String("Echeberria")),new EntryImpl<Integer,String>(1,new String("Garcia")),new EntryImpl<Integer,String>(5,new String("Sanchez")))) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(11)) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(7)).doCall().checkResult(new String("Ferrer")) ;
 return ok_sofar ;
 }
 ) ;
@@ -1670,7 +2938,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_39")) ;
-    ResultsHandler.add_result(new String("findBottom"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -1688,13 +2956,110 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_40") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_40")) ;
 if (ok_sofar)
-  ok_sofar = new FindBottom(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(65984),new MyInteger(28985),new MyInteger(37032),new MyInteger(35019),new MyInteger(78415),new MyInteger(62287),new MyInteger(52431),new MyInteger(63002),new MyInteger(90212),new MyInteger(97277),new MyInteger(21335),new MyInteger(77998),new MyInteger(16269),new MyInteger(8015),new MyInteger(90371),new MyInteger(75190),new MyInteger(38298),new MyInteger(90900),new MyInteger(66858),new MyInteger(18207),new MyInteger(68161),new MyInteger(3749),new MyInteger(71199),new MyInteger(54147),new MyInteger(83876),new MyInteger(53332),new MyInteger(5371),new MyInteger(32280),new MyInteger(40227),new MyInteger(44082),new MyInteger(96433),new MyInteger(93263),new MyInteger(98763) })).doCall().checkResult(new es.upm.aedlib.Pair<es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>,Integer>(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(1),new MyInteger(3),new MyInteger(6),new MyInteger(10),new MyInteger(13),new MyInteger(16),new MyInteger(19),new MyInteger(21),new MyInteger(23),new MyInteger(26),new MyInteger(31) }),new Integer(33))) ;
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray()) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(9)).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(10)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Rodriguez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(1)) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(1) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Boix")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Marin")).doCall().checkResult(new String("Rodriguez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Garcia")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(1)).doCall().checkResult(new String("Marin")) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(1,new String("Marin")),new EntryImpl<Integer,String>(4,new String("Boix")),new EntryImpl<Integer,String>(5,new String("Garcia")))) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(1),new Integer(4),new Integer(5) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Herrera")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Martinez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Rodriguez")).doCall().checkResult(new String("Garcia")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(7)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Prats")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Rossello")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Castro")).doCall().checkResult(new String("Boix")) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(1,new String("Marin")),new EntryImpl<Integer,String>(4,new String("Castro")),new EntryImpl<Integer,String>(5,new String("Rodriguez")),new EntryImpl<Integer,String>(8,new String("Herrera")),new EntryImpl<Integer,String>(3,new String("Martinez")),new EntryImpl<Integer,String>(7,new String("Prats")),new EntryImpl<Integer,String>(2,new String("Rossello")))) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(7)) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(3)).doCall().checkResult(new String("Martinez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Bonet")).doCall().checkResult(new String("Herrera")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Echeberria")).doCall().checkResult(new String("Rossello")) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(7)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Albuixech")).doCall().checkResult(new String("Echeberria")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Bonet")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(1,new String("Marin")),new EntryImpl<Integer,String>(4,new String("Castro")),new EntryImpl<Integer,String>(5,new String("Rodriguez")),new EntryImpl<Integer,String>(8,new String("Bonet")),new EntryImpl<Integer,String>(3,new String("Martinez")),new EntryImpl<Integer,String>(7,new String("Prats")),new EntryImpl<Integer,String>(2,new String("Albuixech")),new EntryImpl<Integer,String>(10,new String("Bonet")))) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(1),new Integer(4),new Integer(5),new Integer(8),new Integer(3),new Integer(7),new Integer(2),new Integer(10) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Navarro")).doCall().checkResult(new String("Bonet")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Ferrer")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(1,new String("Marin")),new EntryImpl<Integer,String>(4,new String("Castro")),new EntryImpl<Integer,String>(5,new String("Rodriguez")),new EntryImpl<Integer,String>(8,new String("Bonet")),new EntryImpl<Integer,String>(3,new String("Martinez")),new EntryImpl<Integer,String>(7,new String("Prats")),new EntryImpl<Integer,String>(2,new String("Albuixech")),new EntryImpl<Integer,String>(10,new String("Navarro")),new EntryImpl<Integer,String>(6,new String("Ferrer")))) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(2)).doCall().checkResult(new String("Albuixech")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Garcia")).doCall().checkResult(new String("Navarro")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Boix")).doCall().checkResult(new String("Garcia")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Echeberria")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(1),new Integer(4),new Integer(5),new Integer(8),new Integer(3),new Integer(7),new Integer(2),new Integer(10),new Integer(6),new Integer(0) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Navarro")).doCall().checkResult(new String("Prats")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(4)).doCall().checkResult(new String("Castro")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Benach")).doCall().checkResult(new String("Albuixech")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Rodriguez")).doCall().checkResult(new String("Ferrer")) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(0)).doCall().checkResult(new Boolean(true)) ;
 return ok_sofar ;
 }
 ) ;
@@ -1711,7 +3076,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_40")) ;
-    ResultsHandler.add_result(new String("findBottom"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_non_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -1734,8 +3099,6 @@ TestData.initTrace() ;
 TestData.testName = new String("test_41") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_41")) ;
-if (ok_sofar)
-  ok_sofar = new FindBottom(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(74466),new MyInteger(8863),new MyInteger(35567),new MyInteger(83874),new MyInteger(1500),new MyInteger(15501),new MyInteger(92752),new MyInteger(34913),new MyInteger(42971),new MyInteger(89332),new MyInteger(18490),new MyInteger(55602),new MyInteger(80029),new MyInteger(61146),new MyInteger(99580),new MyInteger(73592),new MyInteger(16936),new MyInteger(95022),new MyInteger(77104),new MyInteger(28081),new MyInteger(85337),new MyInteger(62108),new MyInteger(55406),new MyInteger(73652),new MyInteger(1946),new MyInteger(69998),new MyInteger(33843),new MyInteger(9830),new MyInteger(10967),new MyInteger(56515),new MyInteger(14012),new MyInteger(75313),new MyInteger(20291),new MyInteger(74911),new MyInteger(91128),new MyInteger(3873),new MyInteger(42371),new MyInteger(40961),new MyInteger(91784),new MyInteger(46620),new MyInteger(25685),new MyInteger(57193),new MyInteger(88076),new MyInteger(94149),new MyInteger(20220),new MyInteger(51396),new MyInteger(98399),new MyInteger(90878),new MyInteger(79317),new MyInteger(5077),new MyInteger(84986),new MyInteger(42433),new MyInteger(84050),new MyInteger(90749),new MyInteger(5903),new MyInteger(7040),new MyInteger(36283),new MyInteger(49684),new MyInteger(78676),new MyInteger(28324),new MyInteger(2275) })).doCall().checkResult(new es.upm.aedlib.Pair<es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>,Integer>(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(1),new MyInteger(4),new MyInteger(7),new MyInteger(10),new MyInteger(13),new MyInteger(16),new MyInteger(19),new MyInteger(22),new MyInteger(24),new MyInteger(27),new MyInteger(30),new MyInteger(32),new MyInteger(35),new MyInteger(37),new MyInteger(40),new MyInteger(44),new MyInteger(49),new MyInteger(51),new MyInteger(54),new MyInteger(60) }),new Integer(61))) ;
 return ok_sofar ;
 }
 ) ;
@@ -1752,7 +3115,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_41")) ;
-    ResultsHandler.add_result(new String("findBottom"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -1770,13 +3133,20 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_42") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_42")) ;
 if (ok_sofar)
-  ok_sofar = new FindBottom(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(76373),new MyInteger(36005),new MyInteger(8066),new MyInteger(43043),new MyInteger(10986),new MyInteger(56393),new MyInteger(81536),new MyInteger(76437),new MyInteger(76401),new MyInteger(36591),new MyInteger(12405),new MyInteger(9770),new MyInteger(78103),new MyInteger(56107),new MyInteger(24579),new MyInteger(15632),new MyInteger(78903),new MyInteger(73562),new MyInteger(28670),new MyInteger(18226),new MyInteger(40016),new MyInteger(44814),new MyInteger(27895),new MyInteger(64333),new MyInteger(53898),new MyInteger(39215),new MyInteger(69201),new MyInteger(51642),new MyInteger(41138),new MyInteger(87158),new MyInteger(47954),new MyInteger(6873),new MyInteger(62966),new MyInteger(94014),new MyInteger(96940),new MyInteger(9155),new MyInteger(33951),new MyInteger(1019),new MyInteger(2070),new MyInteger(26458),new MyInteger(59768),new MyInteger(13435),new MyInteger(25848),new MyInteger(86695),new MyInteger(55485),new MyInteger(6452),new MyInteger(41413),new MyInteger(9284),new MyInteger(40490),new MyInteger(8629),new MyInteger(29113),new MyInteger(40941),new MyInteger(86035),new MyInteger(78984),new MyInteger(23036),new MyInteger(65297),new MyInteger(45361),new MyInteger(76924),new MyInteger(18735),new MyInteger(73505),new MyInteger(78803),new MyInteger(55920),new MyInteger(72922),new MyInteger(53586),new MyInteger(45310),new MyInteger(44877),new MyInteger(58351),new MyInteger(56056),new MyInteger(70982),new MyInteger(10699),new MyInteger(4443),new MyInteger(66205),new MyInteger(50689),new MyInteger(75241),new MyInteger(81422),new MyInteger(21865),new MyInteger(63911),new MyInteger(36821),new MyInteger(94440),new MyInteger(47),new MyInteger(42004),new MyInteger(34588),new MyInteger(23593),new MyInteger(19555),new MyInteger(71195),new MyInteger(88394),new MyInteger(87377),new MyInteger(43676),new MyInteger(73341),new MyInteger(56220),new MyInteger(31090),new MyInteger(1192) })).doCall().checkResult(new es.upm.aedlib.Pair<es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>,Integer>(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(2),new MyInteger(4),new MyInteger(11),new MyInteger(15),new MyInteger(19),new MyInteger(22),new MyInteger(25),new MyInteger(28),new MyInteger(31),new MyInteger(35),new MyInteger(37),new MyInteger(41),new MyInteger(45),new MyInteger(47),new MyInteger(49),new MyInteger(54),new MyInteger(56),new MyInteger(58),new MyInteger(61),new MyInteger(65),new MyInteger(67),new MyInteger(70),new MyInteger(72),new MyInteger(75),new MyInteger(77),new MyInteger(79),new MyInteger(83),new MyInteger(87),new MyInteger(91) }),new Integer(92))) ;
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
 return ok_sofar ;
 }
 ) ;
@@ -1793,7 +3163,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_42")) ;
-    ResultsHandler.add_result(new String("findBottom"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -1811,13 +3181,20 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_43") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_43")) ;
 if (ok_sofar)
-  ok_sofar = new FindBottom(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(79383),new MyInteger(76748),new MyInteger(6818),new MyInteger(22387),new MyInteger(15033),new MyInteger(49267),new MyInteger(4834),new MyInteger(17224),new MyInteger(90030),new MyInteger(33361),new MyInteger(48070),new MyInteger(29295),new MyInteger(8078),new MyInteger(48157),new MyInteger(82041),new MyInteger(10793),new MyInteger(20644),new MyInteger(54543),new MyInteger(88291),new MyInteger(31151),new MyInteger(79044),new MyInteger(27957),new MyInteger(45941),new MyInteger(18119),new MyInteger(34631),new MyInteger(48953),new MyInteger(76227),new MyInteger(46474),new MyInteger(20376),new MyInteger(69957),new MyInteger(40111),new MyInteger(20390),new MyInteger(65315),new MyInteger(20845),new MyInteger(97152),new MyInteger(58887),new MyInteger(83571),new MyInteger(29124),new MyInteger(18177),new MyInteger(24508),new MyInteger(85043),new MyInteger(41191),new MyInteger(31235),new MyInteger(39901),new MyInteger(39623),new MyInteger(87373),new MyInteger(45793),new MyInteger(23734),new MyInteger(78751),new MyInteger(1972),new MyInteger(8101) })).doCall().checkResult(new es.upm.aedlib.Pair<es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>,Integer>(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(2),new MyInteger(4),new MyInteger(6),new MyInteger(9),new MyInteger(12),new MyInteger(15),new MyInteger(19),new MyInteger(21),new MyInteger(23),new MyInteger(28),new MyInteger(31),new MyInteger(33),new MyInteger(35),new MyInteger(38),new MyInteger(42),new MyInteger(44),new MyInteger(47),new MyInteger(49) }),new Integer(51))) ;
+{
+  v_0 = new Constructor(2).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
 return ok_sofar ;
 }
 ) ;
@@ -1834,7 +3211,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_43")) ;
-    ResultsHandler.add_result(new String("findBottom"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -1852,13 +3229,20 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_44") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_44")) ;
 if (ok_sofar)
-  ok_sofar = new FindBottom(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(93352),new MyInteger(90708),new MyInteger(65142),new MyInteger(65970),new MyInteger(20541),new MyInteger(87005),new MyInteger(51908),new MyInteger(52119),new MyInteger(30612),new MyInteger(5297),new MyInteger(81711),new MyInteger(1920),new MyInteger(18430),new MyInteger(83585),new MyInteger(36609),new MyInteger(18470),new MyInteger(95829),new MyInteger(1635),new MyInteger(35345),new MyInteger(54415) })).doCall().checkResult(new es.upm.aedlib.Pair<es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>,Integer>(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(2),new MyInteger(4),new MyInteger(6),new MyInteger(9),new MyInteger(11),new MyInteger(15),new MyInteger(17) }),new Integer(20))) ;
+{
+  v_0 = new Constructor(3).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
 return ok_sofar ;
 }
 ) ;
@@ -1875,7 +3259,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_44")) ;
-    ResultsHandler.add_result(new String("findBottom"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -1893,13 +3277,20 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_45") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_45")) ;
 if (ok_sofar)
-  ok_sofar = new FindBottom(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(94696),new MyInteger(35230),new MyInteger(66677),new MyInteger(23076),new MyInteger(22244),new MyInteger(80906),new MyInteger(86348),new MyInteger(15158),new MyInteger(2673),new MyInteger(47861),new MyInteger(9279),new MyInteger(14285),new MyInteger(73790),new MyInteger(48716),new MyInteger(29234),new MyInteger(97113),new MyInteger(1360),new MyInteger(72687),new MyInteger(18262),new MyInteger(50560),new MyInteger(76175),new MyInteger(63783),new MyInteger(77259),new MyInteger(97468),new MyInteger(7027),new MyInteger(64471),new MyInteger(90014),new MyInteger(5884),new MyInteger(7829),new MyInteger(46495),new MyInteger(24964),new MyInteger(65036),new MyInteger(54780),new MyInteger(65003),new MyInteger(22347),new MyInteger(84268),new MyInteger(11092),new MyInteger(37439),new MyInteger(59978),new MyInteger(39174),new MyInteger(81193),new MyInteger(4357),new MyInteger(69461),new MyInteger(17914),new MyInteger(9039),new MyInteger(58766),new MyInteger(88322),new MyInteger(76860),new MyInteger(83984),new MyInteger(38745),new MyInteger(45014),new MyInteger(85830),new MyInteger(34216),new MyInteger(98952),new MyInteger(17907),new MyInteger(76591),new MyInteger(21785),new MyInteger(64102),new MyInteger(40551),new MyInteger(38546),new MyInteger(88561),new MyInteger(15262),new MyInteger(74159),new MyInteger(82042),new MyInteger(18976),new MyInteger(94943),new MyInteger(58217),new MyInteger(68029),new MyInteger(42690),new MyInteger(67589),new MyInteger(60605),new MyInteger(4825),new MyInteger(1595),new MyInteger(2481),new MyInteger(89331),new MyInteger(97970),new MyInteger(41429),new MyInteger(19223),new MyInteger(8518),new MyInteger(97561),new MyInteger(16564),new MyInteger(97432),new MyInteger(85949),new MyInteger(93303),new MyInteger(3659),new MyInteger(45534),new MyInteger(65895),new MyInteger(8460),new MyInteger(24118),new MyInteger(63692) })).doCall().checkResult(new es.upm.aedlib.Pair<es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>,Integer>(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(1),new MyInteger(4),new MyInteger(8),new MyInteger(10),new MyInteger(14),new MyInteger(16),new MyInteger(18),new MyInteger(21),new MyInteger(24),new MyInteger(27),new MyInteger(30),new MyInteger(32),new MyInteger(34),new MyInteger(36),new MyInteger(39),new MyInteger(41),new MyInteger(44),new MyInteger(47),new MyInteger(49),new MyInteger(52),new MyInteger(54),new MyInteger(56),new MyInteger(59),new MyInteger(61),new MyInteger(64),new MyInteger(66),new MyInteger(68),new MyInteger(72),new MyInteger(78),new MyInteger(80),new MyInteger(82),new MyInteger(84),new MyInteger(87) }),new Integer(90))) ;
+{
+  v_0 = new Constructor(4).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
 return ok_sofar ;
 }
 ) ;
@@ -1916,7 +3307,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_45")) ;
-    ResultsHandler.add_result(new String("findBottom"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -1934,13 +3325,22 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_46") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_46")) ;
 if (ok_sofar)
-  ok_sofar = new FindBottom(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(95910),new MyInteger(67412),new MyInteger(51609),new MyInteger(2362),new MyInteger(64403),new MyInteger(89397),new MyInteger(99384),new MyInteger(20884),new MyInteger(78407),new MyInteger(30405),new MyInteger(54900),new MyInteger(42420),new MyInteger(56036),new MyInteger(11945),new MyInteger(94106),new MyInteger(81333),new MyInteger(74005),new MyInteger(19797),new MyInteger(25419),new MyInteger(28020),new MyInteger(6371),new MyInteger(13580),new MyInteger(95462),new MyInteger(23183),new MyInteger(37324),new MyInteger(68860),new MyInteger(23791),new MyInteger(58552),new MyInteger(27850),new MyInteger(11164),new MyInteger(42797),new MyInteger(37786) })).doCall().checkResult(new es.upm.aedlib.Pair<es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>,Integer>(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(3),new MyInteger(7),new MyInteger(9),new MyInteger(11),new MyInteger(13),new MyInteger(17),new MyInteger(20),new MyInteger(23),new MyInteger(26),new MyInteger(29),new MyInteger(31) }),new Integer(32))) ;
+{
+  v_0 = new Constructor(2).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Ferrer")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -1957,7 +3357,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_46")) ;
-    ResultsHandler.add_result(new String("findBottom"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -1975,13 +3375,22 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_47") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_47")) ;
 if (ok_sofar)
-  ok_sofar = new FindBottom(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(0),new MyInteger(1),new MyInteger(2),new MyInteger(4),new MyInteger(5),new MyInteger(6),new MyInteger(7),new MyInteger(8),new MyInteger(9),new MyInteger(10),new MyInteger(11),new MyInteger(12),new MyInteger(13),new MyInteger(14),new MyInteger(15),new MyInteger(16),new MyInteger(17),new MyInteger(18),new MyInteger(19),new MyInteger(20),new MyInteger(21),new MyInteger(22),new MyInteger(23),new MyInteger(24),new MyInteger(25),new MyInteger(26),new MyInteger(27),new MyInteger(28),new MyInteger(29),new MyInteger(30) })).doCall().checkResult(new es.upm.aedlib.Pair<es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>,Integer>(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(0) }),new Integer(30))) ;
+{
+  v_0 = new Constructor(5).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(7)).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -1998,7 +3407,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_47")) ;
-    ResultsHandler.add_result(new String("findBottom"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2016,13 +3425,24 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_48") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_48")) ;
 if (ok_sofar)
-  ok_sofar = new FindBottom(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(30),new MyInteger(29),new MyInteger(28),new MyInteger(27),new MyInteger(26),new MyInteger(25),new MyInteger(24),new MyInteger(23),new MyInteger(22),new MyInteger(21),new MyInteger(20),new MyInteger(19),new MyInteger(18),new MyInteger(17),new MyInteger(16),new MyInteger(15),new MyInteger(14),new MyInteger(13),new MyInteger(12),new MyInteger(11),new MyInteger(10),new MyInteger(9),new MyInteger(8),new MyInteger(7),new MyInteger(6),new MyInteger(5),new MyInteger(4),new MyInteger(3),new MyInteger(2),new MyInteger(1) })).doCall().checkResult(new es.upm.aedlib.Pair<es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>,Integer>(new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(new MyInteger[] { new MyInteger(29) }),new Integer(30))) ;
+{
+  v_0 = new Constructor(2).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Gonzalez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Fernandez")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -2039,7 +3459,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_48")) ;
-    ResultsHandler.add_result(new String("findBottom"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2057,11 +3477,24 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_49") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_49")) ;
+if (ok_sofar)
+{
+  v_0 = new Constructor(3).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(2)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(4)).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -2078,7 +3511,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_49")) ;
-    ResultsHandler.add_result(new String("joinMultiSets"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2096,13 +3529,24 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_50") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_50")) ;
 if (ok_sofar)
-  ok_sofar = new JoinMultiSets(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(3)))),new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(2))))).doCall().checkResult(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(4)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(3))))) ;
+{
+  v_0 = new Constructor(3).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Rossello")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(2)).doCall().checkResult(new String("Rossello")) ;
 return ok_sofar ;
 }
 ) ;
@@ -2119,7 +3563,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_50")) ;
-    ResultsHandler.add_result(new String("joinMultiSets"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2137,13 +3581,24 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_51") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_51")) ;
 if (ok_sofar)
-  ok_sofar = new JoinMultiSets(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(1)))),new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(1))))).doCall().checkResult(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(4)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(2))))) ;
+{
+  v_0 = new Constructor(3).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Rossello")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(3,new String("Rossello")))) ;
 return ok_sofar ;
 }
 ) ;
@@ -2160,7 +3615,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_51")) ;
-    ResultsHandler.add_result(new String("joinMultiSets"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2178,13 +3633,24 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_52") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_52")) ;
 if (ok_sofar)
-  ok_sofar = new JoinMultiSets(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(3)))),new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(3))))).doCall().checkResult(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(5)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(6))))) ;
+{
+  v_0 = new Constructor(4).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Perez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Boix")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -2201,7 +3667,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_52")) ;
-    ResultsHandler.add_result(new String("joinMultiSets"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2219,13 +3685,26 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_53") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_53")) ;
 if (ok_sofar)
-  ok_sofar = new JoinMultiSets(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(2)))),new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(3))))).doCall().checkResult(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(5)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(2))))) ;
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Ferrer")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Martinez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(9)).doCall().checkResult(new String("Ferrer")) ;
 return ok_sofar ;
 }
 ) ;
@@ -2242,7 +3721,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_53")) ;
-    ResultsHandler.add_result(new String("joinMultiSets"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2260,13 +3739,26 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_54") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_54")) ;
 if (ok_sofar)
-  ok_sofar = new JoinMultiSets(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(1)))),new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(1))))).doCall().checkResult(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(5)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(1))))) ;
+{
+  v_0 = new Constructor(2).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(3)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(0)) ;
 return ok_sofar ;
 }
 ) ;
@@ -2283,7 +3775,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_54")) ;
-    ResultsHandler.add_result(new String("joinMultiSets"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2301,13 +3793,26 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_55") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_55")) ;
 if (ok_sofar)
-  ok_sofar = new JoinMultiSets(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(2)))),new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(2))))).doCall().checkResult(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(4)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(4))))) ;
+{
+  v_0 = new Constructor(2).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Ferrer")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Marin")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Castro")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -2324,7 +3829,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_55")) ;
-    ResultsHandler.add_result(new String("joinMultiSets"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2342,13 +3847,26 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_56") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_56")) ;
 if (ok_sofar)
-  ok_sofar = new JoinMultiSets(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(3)))),new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(2))))).doCall().checkResult(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(5)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(5)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(4)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(5))))) ;
+{
+  v_0 = new Constructor(3).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Navarro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Fernandez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Martinez")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -2365,7 +3883,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_56")) ;
-    ResultsHandler.add_result(new String("joinMultiSets"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2383,13 +3901,26 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_57") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_57")) ;
 if (ok_sofar)
-  ok_sofar = new JoinMultiSets(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(2)))),new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(3))))).doCall().checkResult(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(4)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(4)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(5))))) ;
+{
+  v_0 = new Constructor(5).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Herrera")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Rossello")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(0)).doCall().checkResult(new String("Rossello")) ;
 return ok_sofar ;
 }
 ) ;
@@ -2406,7 +3937,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_57")) ;
-    ResultsHandler.add_result(new String("joinMultiSets"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2424,13 +3955,28 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_58") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_58")) ;
 if (ok_sofar)
-  ok_sofar = new JoinMultiSets(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(3)))),new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(3))))).doCall().checkResult(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(5)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(6)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(4)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(6))))) ;
+{
+  v_0 = new Constructor(2).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(0)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Ferrer")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(2)).doCall().checkResult(new String("Ferrer")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Marti")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -2447,7 +3993,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_58")) ;
-    ResultsHandler.add_result(new String("joinMultiSets"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2465,13 +4011,32 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_59") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_59")) ;
 if (ok_sofar)
-  ok_sofar = new JoinMultiSets(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(2)))),new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(3))))).doCall().checkResult(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(5)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(6)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(5))))) ;
+{
+  v_0 = new Constructor(5).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Alzaga")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(7)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Lopez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(7)).doCall().checkResult(new String("Alzaga")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Navarro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Rossello")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -2488,7 +4053,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_59")) ;
-    ResultsHandler.add_result(new String("joinMultiSets"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2506,13 +4071,32 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_60") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_60")) ;
 if (ok_sofar)
-  ok_sofar = new JoinMultiSets(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(3)))),new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(1))))).doCall().checkResult(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(5)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(4))))) ;
+{
+  v_0 = new Constructor(5).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(1)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(10)).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Herrera")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Navarro")).doCall().checkResult(new String("Herrera")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Bonet")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -2529,7 +4113,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_60")) ;
-    ResultsHandler.add_result(new String("joinMultiSets"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2547,13 +4131,34 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_61") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_61")) ;
 if (ok_sofar)
-  ok_sofar = new JoinMultiSets(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(2)))),new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(1))))).doCall().checkResult(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(6)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(5)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(3))))) ;
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(7)).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(1)).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(2)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Castro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(2)).doCall().checkResult(new String("Castro")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Navarro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(5)).doCall().checkResult(new String("Navarro")) ;
 return ok_sofar ;
 }
 ) ;
@@ -2570,7 +4175,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_61")) ;
-    ResultsHandler.add_result(new String("joinMultiSets"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2588,13 +4193,34 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_62") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_62")) ;
 if (ok_sofar)
-  ok_sofar = new JoinMultiSets(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(3)))),new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(1))))).doCall().checkResult(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(6)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(5)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(1))))) ;
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Sanchez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Alzaga")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(3),new Integer(4) }) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(3,new String("Sanchez")),new EntryImpl<Integer,String>(4,new String("Alzaga")))) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(4)).doCall().checkResult(new String("Alzaga")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Marin")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Perez")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -2611,7 +4237,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_62")) ;
-    ResultsHandler.add_result(new String("joinMultiSets"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2629,13 +4255,34 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_63") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_63")) ;
 if (ok_sofar)
-  ok_sofar = new JoinMultiSets(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(1)))),new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(1))))).doCall().checkResult(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(4)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(4)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(2))))) ;
+{
+  v_0 = new Constructor(2).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Alzaga")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(0) }) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(0)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(1)).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(0)).doCall().checkResult(new String("Alzaga")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(8)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Goicoechea")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -2652,7 +4299,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_63")) ;
-    ResultsHandler.add_result(new String("joinMultiSets"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2670,13 +4317,34 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_64") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_64")) ;
 if (ok_sofar)
-  ok_sofar = new JoinMultiSets(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(1)))),new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(2))))).doCall().checkResult(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(3))))) ;
+{
+  v_0 = new Constructor(2).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Echeberria")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(0,new String("Echeberria")))) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Lopez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Alzaga")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Perez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(0),new Integer(8),new Integer(3),new Integer(1) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Fernandez")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -2693,7 +4361,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_64")) ;
-    ResultsHandler.add_result(new String("joinMultiSets"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2711,13 +4379,34 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_65") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_65")) ;
 if (ok_sofar)
-  ok_sofar = new JoinMultiSets(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(1)))),new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(1))))).doCall().checkResult(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(4)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(1))))) ;
+{
+  v_0 = new Constructor(2).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Rodriguez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(5)).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(9)).doCall().checkResult(new String("Rodriguez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Fernandez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(4)).doCall().checkResult(new String("Fernandez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Navarro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Sanchez")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -2734,7 +4423,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_65")) ;
-    ResultsHandler.add_result(new String("joinMultiSets"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2752,13 +4441,36 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_66") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_66")) ;
 if (ok_sofar)
-  ok_sofar = new JoinMultiSets(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(1)))),new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(2))))).doCall().checkResult(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(4)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(6)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(3))))) ;
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Perez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(1) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Perez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Marti")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(0)).doCall().checkResult(new String("Perez")) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(0)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Albuixech")).doCall().checkResult(new String("Perez")) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(0)).doCall().checkResult(new Boolean(true)) ;
 return ok_sofar ;
 }
 ) ;
@@ -2775,7 +4487,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_66")) ;
-    ResultsHandler.add_result(new String("joinMultiSets"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2793,13 +4505,38 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_67") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_67")) ;
 if (ok_sofar)
-  ok_sofar = new JoinMultiSets(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(2)))),new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(2))))).doCall().checkResult(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(6)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(4)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(4))))) ;
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(10)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(10)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Prats")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Boix")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(0)).doCall().checkResult(new String("Boix")) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(9)).doCall().checkResult(new String("Prats")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Martinez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(0)).doCall().checkResult(new String("Martinez")) ;
 return ok_sofar ;
 }
 ) ;
@@ -2816,7 +4553,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_67")) ;
-    ResultsHandler.add_result(new String("joinMultiSets"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2834,13 +4571,40 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_68") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_68")) ;
 if (ok_sofar)
-  ok_sofar = new JoinMultiSets(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(1)))),new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(2)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(1))))).doCall().checkResult(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 97),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(3)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 99),new Integer(4)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 100),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(2))))) ;
+{
+  v_0 = new Constructor(2).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(1)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Prats")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Gonzalez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Benach")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(1,new String("Prats")),new EntryImpl<Integer,String>(2,new String("Gonzalez")),new EntryImpl<Integer,String>(9,new String("Benach")))) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Prats")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Gonzalez")).doCall().checkResult(new String("Benach")) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(6)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Lopez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Gonzalez")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -2857,7 +4621,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_68")) ;
-    ResultsHandler.add_result(new String("joinMultiSets"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2875,13 +4639,44 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_69") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_69")) ;
 if (ok_sofar)
-  ok_sofar = new JoinMultiSets(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(2)))),new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(1))))).doCall().checkResult(new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(TestUtils.toGenericArray(new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 98),new Integer(1)),new es.upm.aedlib.Pair<Character,Integer>(new Character((char) 101),new Integer(2))))) ;
+{
+  v_0 = new Constructor(4).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Rossello")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(3)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Rodriguez")).doCall().checkResult(new String("Rossello")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(5)).doCall().checkResult(new String("Rodriguez")) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(1)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Fernandez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(2)) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(5),new Integer(6) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Herrera")).doCall().checkResult(new String("Fernandez")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(5)).doCall().checkResult(new String("Rodriguez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Rodriguez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(3)).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -2898,7 +4693,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_69")) ;
-    ResultsHandler.add_result(new String("joinMultiSets"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2916,11 +4711,46 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_70") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_70")) ;
+if (ok_sofar)
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] {  }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Llorente")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(8) }) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(6)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(9)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(8,new String("Llorente")))) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(8)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Perez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(7)).doCall().checkResult(new String("Perez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Gonzalez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Perez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Benach")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -2937,7 +4767,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_70")) ;
-    ResultsHandler.add_result(new String("explora"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2955,13 +4785,48 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_71") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_71")) ;
 if (ok_sofar)
-  ok_sofar = new Explora(new Lugar(new Punto[][] { { new Punto(null,true,false,false,false),new Punto(null,true,false,false,true),new Punto(null,true,false,true,true),new Punto(null,false,false,true,true),new Punto(null,true,false,true,false) }, { new Punto(null,true,true,false,true),new Punto(null,true,true,true,true),new Punto(null,false,true,true,true),new Punto(null,false,false,true,false),new Punto(null,true,true,false,false) }, { new Punto(null,false,true,false,false),new Punto(null,false,true,false,true),new Punto(null,false,false,true,false),new Punto(41,false,false,false,true),new Punto(null,false,true,true,false) } },0,0)).doCall().checkResult(new Integer(41)) ;
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(8)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray()) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray()) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(0)) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(6)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(7)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Perez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Albuixech")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Navarro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(2)).doCall().checkResult(new String("Perez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Boix")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Herrera")).doCall().checkResult(new String("Navarro")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Marti")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(6,new String("Albuixech")),new EntryImpl<Integer,String>(3,new String("Herrera")),new EntryImpl<Integer,String>(5,new String("Boix")),new EntryImpl<Integer,String>(10,new String("Marti")))) ;
 return ok_sofar ;
 }
 ) ;
@@ -2978,7 +4843,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_71")) ;
-    ResultsHandler.add_result(new String("explora"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -2996,13 +4861,52 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_72") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_72")) ;
 if (ok_sofar)
-  ok_sofar = new Explora(new Lugar(new Punto[][] { { new Punto(null,true,false,false,true),new Punto(null,true,false,true,true),new Punto(null,true,false,true,true),new Punto(null,true,false,true,true),new Punto(92,true,false,true,false),new Punto(null,true,false,false,false) }, { new Punto(null,true,true,false,true),new Punto(null,false,true,true,false),new Punto(null,true,true,false,true),new Punto(null,false,true,true,false),new Punto(null,true,true,false,true),new Punto(null,true,true,true,false) }, { new Punto(null,false,true,false,true),new Punto(null,false,false,true,true),new Punto(null,false,true,true,true),new Punto(null,false,false,true,false),new Punto(null,false,true,false,false),new Punto(null,false,true,false,false) } },0,0)).doCall().checkResult(new Integer(92)) ;
+{
+  v_0 = new Constructor(2).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Perez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Bonet")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Echeberria")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Lopez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(2)).doCall().checkResult(new String("Bonet")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Echeberria")).doCall().checkResult(new String("Echeberria")) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(9)).doCall().checkResult(new String("Perez")) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(2,new String("Bonet")),new EntryImpl<Integer,String>(6,new String("Echeberria")),new EntryImpl<Integer,String>(5,new String("Lopez")))) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(5)).doCall().checkResult(new String("Lopez")) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(2)) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(2)).doCall().checkResult(new String("Bonet")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Castro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Benach")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Ferrer")).doCall().checkResult(new String("Bonet")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(5)).doCall().checkResult(new String("Benach")) ;
 return ok_sofar ;
 }
 ) ;
@@ -3019,7 +4923,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_72")) ;
-    ResultsHandler.add_result(new String("explora"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -3037,13 +4941,52 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_73") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_73")) ;
 if (ok_sofar)
-  ok_sofar = new Explora(new Lugar(new Punto[][] { { new Punto(null,false,false,false,true),new Punto(null,false,false,true,true),new Punto(null,true,false,true,false),new Punto(null,true,false,false,false) }, { new Punto(null,false,false,false,true),new Punto(null,false,false,true,true),new Punto(null,true,true,true,true),new Punto(null,false,true,true,false) }, { new Punto(null,true,false,false,true),new Punto(null,true,false,true,false),new Punto(null,false,true,false,true),new Punto(null,true,false,true,false) }, { new Punto(null,true,true,false,false),new Punto(null,true,true,false,true),new Punto(null,true,false,true,true),new Punto(null,true,true,true,false) }, { new Punto(null,false,true,false,true),new Punto(null,false,true,true,true),new Punto(87,false,true,true,false),new Punto(null,false,true,false,false) } },0,0)).doCall().checkResult(new Integer(87)) ;
+{
+  v_0 = new Constructor(3).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Marin")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Perez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Herrera")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Goicoechea")).doCall().checkResult(new String("Perez")) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(0)).doCall().checkResult(new String("Goicoechea")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Echeberria")).doCall().checkResult(new String("Marin")) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Rossello")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Albuixech")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Echeberria")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(2,new String("Echeberria")),new EntryImpl<Integer,String>(6,new String("Herrera")),new EntryImpl<Integer,String>(10,new String("Rossello")),new EntryImpl<Integer,String>(1,new String("Albuixech")),new EntryImpl<Integer,String>(5,new String("Echeberria")))) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(9)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(1)).doCall().checkResult(new String("Albuixech")) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(6)).doCall().checkResult(new String("Herrera")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Alzaga")).doCall().checkResult(new String("Echeberria")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Navarro")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -3060,7 +5003,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_73")) ;
-    ResultsHandler.add_result(new String("explora"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -3078,13 +5021,54 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_74") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_74")) ;
 if (ok_sofar)
-  ok_sofar = new Explora(new Lugar(new Punto[][] { { new Punto(null,false,false,false,true),new Punto(null,true,false,true,true),new Punto(null,true,false,true,false) }, { new Punto(null,true,false,false,true),new Punto(null,true,true,true,true),new Punto(null,true,true,true,false) }, { new Punto(null,true,true,false,false),new Punto(null,true,true,false,false),new Punto(null,false,true,false,false) }, { new Punto(null,false,true,false,true),new Punto(null,true,true,true,true),new Punto(null,false,false,true,false) }, { new Punto(null,true,false,false,true),new Punto(null,true,true,true,false),new Punto(null,false,false,false,false) }, { new Punto(null,true,true,false,false),new Punto(null,false,true,false,false),new Punto(null,true,false,false,false) }, { new Punto(70,false,true,false,true),new Punto(null,true,false,true,true),new Punto(null,false,true,true,false) }, { new Punto(null,true,false,false,false),new Punto(null,false,true,false,true),new Punto(null,true,false,true,false) }, { new Punto(null,false,true,false,false),new Punto(null,false,false,false,false),new Punto(null,false,true,false,false) } },0,0)).doCall().checkResult(new Integer(70)) ;
+{
+  v_0 = new Constructor(2).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(0)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Castro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(10) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Albuixech")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Echeberria")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Marin")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(8)).doCall().checkResult(new String("Albuixech")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Perez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(10),new Integer(8),new Integer(5),new Integer(1),new Integer(3) }) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(10,new String("Castro")),new EntryImpl<Integer,String>(8,new String("Albuixech")),new EntryImpl<Integer,String>(5,new String("Echeberria")),new EntryImpl<Integer,String>(1,new String("Marin")),new EntryImpl<Integer,String>(3,new String("Perez")))) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(3)).doCall().checkResult(new String("Perez")) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(10)).doCall().checkResult(new String("Castro")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(1)).doCall().checkResult(new String("Marin")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Alzaga")).doCall().checkResult(new String("Marin")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Ferrer")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Echeberria")).doCall().checkResult(new String("Echeberria")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Goicoechea")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -3101,7 +5085,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_74")) ;
-    ResultsHandler.add_result(new String("explora"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -3119,13 +5103,62 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_75") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_75")) ;
 if (ok_sofar)
-  ok_sofar = new Explora(new Lugar(new Punto[][] { { new Punto(null,true,false,false,false),new Punto(null,true,false,false,true),new Punto(null,false,false,true,true),new Punto(null,false,false,true,true),new Punto(null,true,false,true,false) }, { new Punto(null,false,true,false,true),new Punto(null,false,true,true,false),new Punto(null,false,false,false,true),new Punto(null,false,false,true,true),new Punto(null,true,true,true,false) }, { new Punto(null,true,false,false,true),new Punto(null,false,false,true,false),new Punto(null,true,false,false,false),new Punto(null,true,false,false,true),new Punto(null,false,true,true,false) }, { new Punto(60,true,true,false,false),new Punto(null,false,false,false,true),new Punto(null,true,true,true,true),new Punto(null,false,true,true,true),new Punto(null,true,false,true,false) }, { new Punto(null,false,true,false,true),new Punto(null,false,false,true,true),new Punto(null,false,true,true,true),new Punto(null,false,false,true,true),new Punto(null,false,true,true,false) } },0,0)).doCall().checkResult(new Integer(60)) ;
+{
+  v_0 = new Constructor(2).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(4)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Perez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Boix")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Fernandez")).doCall().checkResult(new String("Boix")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Fernandez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Lopez")).doCall().checkResult(new String("Fernandez")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(2)).doCall().checkResult(new String("Perez")) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(3)) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(0)).doCall().checkResult(new String("Fernandez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Ferrer")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(7)).doCall().checkResult(new String("Lopez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Bonet")).doCall().checkResult(new String("Ferrer")) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(0)).doCall().checkResult(new String("Fernandez")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(6)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(2)).doCall().checkResult(new String("Perez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Prats")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(3)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Boix")).doCall().checkResult(new String("Prats")) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
 return ok_sofar ;
 }
 ) ;
@@ -3142,7 +5175,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_75")) ;
-    ResultsHandler.add_result(new String("explora"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -3160,13 +5193,62 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_76") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_76")) ;
 if (ok_sofar)
-  ok_sofar = new Explora(new Lugar(new Punto[][] { { new Punto(null,true,false,false,false),new Punto(null,false,false,false,false),new Punto(null,false,false,false,true),new Punto(null,false,false,true,false) }, { new Punto(null,false,true,false,true),new Punto(null,true,false,true,true),new Punto(null,true,false,true,false),new Punto(20,true,false,false,false) }, { new Punto(null,false,false,false,false),new Punto(null,false,true,false,true),new Punto(null,true,true,true,false),new Punto(null,true,true,false,false) }, { new Punto(null,false,false,false,true),new Punto(null,true,false,true,false),new Punto(null,true,true,false,false),new Punto(null,true,true,false,false) }, { new Punto(null,true,false,false,false),new Punto(null,false,true,false,true),new Punto(null,true,true,true,false),new Punto(null,true,true,false,false) }, { new Punto(null,true,true,false,false),new Punto(null,true,false,false,false),new Punto(null,false,true,false,true),new Punto(null,false,true,true,false) }, { new Punto(null,false,true,false,false),new Punto(null,true,true,false,true),new Punto(null,true,false,true,true),new Punto(null,false,false,true,false) }, { new Punto(null,false,false,false,true),new Punto(null,false,true,true,true),new Punto(null,false,true,true,false),new Punto(null,false,false,false,false) } },0,0)).doCall().checkResult(new Integer(20)) ;
+{
+  v_0 = new Constructor(5).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Lopez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(6)).doCall().checkResult(new String("Lopez")) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(10)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(5)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(0)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Prats")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Lopez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Alzaga")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Marin")).doCall().checkResult(new String("Alzaga")) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(5)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(7)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(5)).doCall().checkResult(new String("Lopez")) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(2)) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(1)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(7)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Marin")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Herrera")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Garcia")).doCall().checkResult(new String("Herrera")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Bonet")).doCall().checkResult(new String("Marin")) ;
 return ok_sofar ;
 }
 ) ;
@@ -3183,7 +5265,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_76")) ;
-    ResultsHandler.add_result(new String("explora"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -3201,13 +5283,64 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_77") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_77")) ;
 if (ok_sofar)
-  ok_sofar = new Explora(new Lugar(new Punto[][] { { new Punto(null,true,false,false,false),new Punto(null,true,false,false,true),new Punto(null,true,false,true,false),new Punto(null,false,false,false,false),new Punto(null,true,false,false,true),new Punto(null,false,false,true,true),new Punto(null,true,false,true,false),new Punto(null,true,false,false,true),new Punto(null,true,false,true,false),new Punto(null,true,false,false,false) }, { new Punto(null,true,true,false,false),new Punto(null,true,true,false,false),new Punto(null,true,true,false,true),new Punto(null,false,false,true,true),new Punto(null,false,true,true,false),new Punto(null,true,false,false,false),new Punto(null,false,true,false,true),new Punto(null,true,true,true,false),new Punto(null,false,true,false,true),new Punto(null,true,true,true,false) }, { new Punto(null,false,true,false,true),new Punto(null,false,true,true,false),new Punto(null,false,true,false,false),new Punto(null,true,false,false,false),new Punto(null,false,false,false,true),new Punto(null,true,true,true,false),new Punto(56,true,false,false,false),new Punto(null,false,true,false,false),new Punto(null,true,false,false,true),new Punto(null,true,true,true,false) }, { new Punto(null,false,false,false,false),new Punto(null,false,false,false,false),new Punto(null,false,false,false,true),new Punto(null,false,true,true,true),new Punto(null,false,false,true,true),new Punto(null,false,true,true,false),new Punto(null,false,true,false,true),new Punto(null,false,false,true,true),new Punto(null,false,true,true,true),new Punto(null,false,true,true,false) } },0,0)).doCall().checkResult(new Integer(56)) ;
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Echeberria")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(2,new String("Echeberria")))) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(2,new String("Echeberria")))) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Martinez")).doCall().checkResult(new String("Echeberria")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(2)).doCall().checkResult(new String("Martinez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Sanchez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(2)) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(2)).doCall().checkResult(new String("Martinez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Rossello")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Alzaga")).doCall().checkResult(new String("Rossello")) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(0),new Integer(2) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Alzaga")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Alzaga")).doCall().checkResult(new String("Alzaga")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(0)).doCall().checkResult(new String("Sanchez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Herrera")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(6)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(0)).doCall().checkResult(new String("Sanchez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Fernandez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Bonet")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Rodriguez")).doCall().checkResult(new String("Herrera")) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(2)).doCall().checkResult(new String("Alzaga")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(5)).doCall().checkResult(new String("Rodriguez")) ;
 return ok_sofar ;
 }
 ) ;
@@ -3224,7 +5357,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_77")) ;
-    ResultsHandler.add_result(new String("explora"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -3242,13 +5375,66 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_78") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_78")) ;
 if (ok_sofar)
-  ok_sofar = new Explora(new Lugar(new Punto[][] { { new Punto(null,true,false,false,false),new Punto(null,true,false,false,false),new Punto(null,true,false,false,true),new Punto(null,false,false,true,true),new Punto(null,false,false,true,true),new Punto(null,true,false,true,true),new Punto(null,false,false,true,true),new Punto(null,true,false,true,false) }, { new Punto(null,false,true,false,true),new Punto(null,true,true,true,true),new Punto(null,false,true,true,false),new Punto(null,true,false,false,false),new Punto(null,true,false,false,false),new Punto(null,true,true,false,false),new Punto(null,true,false,false,false),new Punto(null,false,true,false,false) }, { new Punto(null,true,false,false,true),new Punto(null,false,true,true,false),new Punto(null,false,false,false,false),new Punto(null,true,true,false,false),new Punto(null,true,true,false,true),new Punto(null,true,true,true,false),new Punto(null,false,true,false,true),new Punto(null,false,false,true,false) }, { new Punto(null,true,true,false,false),new Punto(null,true,false,false,false),new Punto(null,false,false,false,true),new Punto(null,true,true,true,false),new Punto(null,true,true,false,false),new Punto(null,false,true,false,false),new Punto(null,true,false,false,false),new Punto(null,false,false,false,false) }, { new Punto(null,true,true,false,false),new Punto(null,false,true,false,false),new Punto(null,true,false,false,false),new Punto(null,false,true,false,true),new Punto(null,false,true,true,true),new Punto(null,true,false,true,false),new Punto(null,false,true,false,false),new Punto(50,true,false,false,false) }, { new Punto(null,true,true,false,false),new Punto(null,true,false,false,true),new Punto(null,true,true,true,false),new Punto(null,false,false,false,true),new Punto(null,true,false,true,false),new Punto(null,true,true,false,true),new Punto(null,false,false,true,true),new Punto(null,false,true,true,false) }, { new Punto(null,true,true,false,true),new Punto(null,false,true,true,true),new Punto(null,false,true,true,true),new Punto(null,false,false,true,false),new Punto(null,false,true,false,true),new Punto(null,true,true,true,true),new Punto(null,true,false,true,true),new Punto(null,true,false,true,false) }, { new Punto(null,false,true,false,false),new Punto(null,false,false,false,false),new Punto(null,true,false,false,false),new Punto(null,true,false,false,false),new Punto(null,false,false,false,true),new Punto(null,true,true,true,false),new Punto(null,true,true,false,false),new Punto(null,true,true,false,false) }, { new Punto(null,false,false,false,false),new Punto(null,false,false,false,false),new Punto(null,false,true,false,false),new Punto(null,false,true,false,false),new Punto(null,false,false,false,true),new Punto(null,false,true,true,false),new Punto(null,false,true,false,false),new Punto(null,false,true,false,false) } },0,0)).doCall().checkResult(new Integer(50)) ;
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(0)) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(3)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(6)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Benach")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(2)).doCall().checkResult(new String("Benach")) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(2)).doCall().checkResult(new String("Benach")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Rossello")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(1)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Lopez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(0,new String("Rossello")),new EntryImpl<Integer,String>(2,new String("Lopez")))) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(0,new String("Rossello")),new EntryImpl<Integer,String>(2,new String("Lopez")))) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Lopez")).doCall().checkResult(new String("Lopez")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(0)).doCall().checkResult(new String("Rossello")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(2)).doCall().checkResult(new String("Lopez")) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(0)).doCall().checkResult(new String("Rossello")) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(3)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(2)).doCall().checkResult(new String("Lopez")) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(2) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Ferrer")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Prats")).doCall().checkResult(new String("Ferrer")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Alzaga")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(2)).doCall().checkResult(new String("Lopez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Alzaga")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -3265,7 +5451,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_78")) ;
-    ResultsHandler.add_result(new String("explora"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -3283,13 +5469,76 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_79") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_79")) ;
 if (ok_sofar)
-  ok_sofar = new Explora(new Lugar(new Punto[][] { { new Punto(null,false,false,false,true),new Punto(null,false,false,true,true),new Punto(null,false,false,true,true),new Punto(null,true,false,true,false),new Punto(null,true,false,false,true),new Punto(null,false,false,true,false),new Punto(null,false,false,false,false),new Punto(null,true,false,false,false),new Punto(null,false,false,false,false) }, { new Punto(null,false,false,false,false),new Punto(null,true,false,false,false),new Punto(null,true,false,false,true),new Punto(null,true,true,true,false),new Punto(null,false,true,false,false),new Punto(null,false,false,false,false),new Punto(null,false,false,false,false),new Punto(null,false,true,false,true),new Punto(null,true,false,true,false) }, { new Punto(null,true,false,false,false),new Punto(null,true,true,false,true),new Punto(null,false,true,true,false),new Punto(null,true,true,false,false),new Punto(null,true,false,false,true),new Punto(null,false,false,true,true),new Punto(null,false,false,true,false),new Punto(null,true,false,false,true),new Punto(null,false,true,true,false) }, { new Punto(null,true,true,false,false),new Punto(null,true,true,false,false),new Punto(null,true,false,false,false),new Punto(null,true,true,false,false),new Punto(null,false,true,false,false),new Punto(null,true,false,false,false),new Punto(null,false,false,false,false),new Punto(null,true,true,false,true),new Punto(null,true,false,true,false) }, { new Punto(null,false,true,false,false),new Punto(null,true,true,false,false),new Punto(null,false,true,false,false),new Punto(null,false,true,false,false),new Punto(null,false,false,false,true),new Punto(null,false,true,true,false),new Punto(null,true,false,false,false),new Punto(null,true,true,false,false),new Punto(null,false,true,false,false) }, { new Punto(73,false,false,false,true),new Punto(null,true,true,true,true),new Punto(null,true,false,true,true),new Punto(null,false,false,true,true),new Punto(null,false,false,true,true),new Punto(null,false,false,true,true),new Punto(null,false,true,true,false),new Punto(null,true,true,false,false),new Punto(null,false,false,false,false) }, { new Punto(null,false,false,false,false),new Punto(null,false,true,false,false),new Punto(null,false,true,false,true),new Punto(null,true,false,true,true),new Punto(null,true,false,true,false),new Punto(null,false,false,false,false),new Punto(null,false,false,false,false),new Punto(null,false,true,false,true),new Punto(null,true,false,true,false) }, { new Punto(null,false,false,false,false),new Punto(null,false,false,false,false),new Punto(null,false,false,false,true),new Punto(null,false,true,true,false),new Punto(null,false,true,false,true),new Punto(null,false,false,true,false),new Punto(null,false,false,false,true),new Punto(null,false,false,true,false),new Punto(null,false,true,false,false) } },0,0)).doCall().checkResult(new Integer(73)) ;
+{
+  v_0 = new Constructor(2).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(1)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Sanchez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(2,new String("Sanchez")))) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(2) }) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(2)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(2,new String("Sanchez")))) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(2)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(2) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Prats")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Benach")).doCall().checkResult(new String("Prats")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Goicoechea")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(2),new Integer(9),new Integer(8) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Prats")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(2),new Integer(9),new Integer(8),new Integer(6) }) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(9)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(2)).doCall().checkResult(new String("Sanchez")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(8)).doCall().checkResult(new String("Goicoechea")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Rossello")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(9),new Integer(8),new Integer(6),new Integer(5) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Boix")).doCall().checkResult(new String("Goicoechea")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Rodriguez")).doCall().checkResult(new String("Rossello")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Llorente")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(9,new String("Benach")),new EntryImpl<Integer,String>(8,new String("Boix")),new EntryImpl<Integer,String>(6,new String("Prats")),new EntryImpl<Integer,String>(5,new String("Rodriguez")),new EntryImpl<Integer,String>(3,new String("Llorente")))) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(8)).doCall().checkResult(new String("Boix")) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(9,new String("Benach")),new EntryImpl<Integer,String>(6,new String("Prats")),new EntryImpl<Integer,String>(5,new String("Rodriguez")),new EntryImpl<Integer,String>(3,new String("Llorente")))) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(4)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Garcia")).doCall().checkResult(new String("Rodriguez")) ;
 return ok_sofar ;
 }
 ) ;
@@ -3306,7 +5555,7 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_79")) ;
-    ResultsHandler.add_result(new String("explora"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -3324,13 +5573,94 @@ return ok_sofar ;
     try
     {
       resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
 TesterCode.resetPrinter() ;
 TestData.initTrace() ;
 TestData.testName = new String("test_80") ;
 boolean ok_sofar = true ;
 ResultsHandler.startTest(new String("test_80")) ;
 if (ok_sofar)
-  ok_sofar = new Explora(new Lugar(new Punto[][] { { new Punto(null,false,false,false,true),new Punto(null,true,false,true,false),new Punto(null,false,false,false,false),new Punto(null,true,false,false,true),new Punto(null,false,false,true,true),new Punto(null,false,false,true,true),new Punto(null,true,false,true,true),new Punto(null,false,false,true,false) }, { new Punto(null,true,false,false,true),new Punto(null,true,true,true,false),new Punto(null,false,false,false,false),new Punto(null,true,true,false,false),new Punto(null,false,false,false,false),new Punto(null,true,false,false,true),new Punto(null,true,true,true,false),new Punto(null,false,false,false,false) }, { new Punto(null,false,true,false,true),new Punto(null,true,true,true,true),new Punto(null,false,false,true,true),new Punto(null,false,true,true,false),new Punto(null,true,false,false,false),new Punto(null,true,true,false,false),new Punto(null,false,true,false,false),new Punto(null,true,false,false,false) }, { new Punto(null,false,false,false,false),new Punto(null,false,true,false,false),new Punto(null,true,false,false,true),new Punto(null,false,false,true,true),new Punto(null,true,true,true,true),new Punto(null,true,true,true,true),new Punto(null,false,false,true,true),new Punto(null,true,true,true,false) }, { new Punto(null,false,false,false,true),new Punto(null,true,false,true,false),new Punto(null,true,true,false,true),new Punto(null,true,false,true,true),new Punto(null,false,true,true,true),new Punto(null,false,true,true,true),new Punto(null,false,false,true,false),new Punto(null,true,true,false,false) }, { new Punto(null,true,false,false,false),new Punto(null,true,true,false,false),new Punto(null,false,true,false,true),new Punto(null,true,true,true,true),new Punto(null,true,false,true,true),new Punto(null,false,false,true,true),new Punto(null,true,false,true,true),new Punto(null,true,true,true,false) }, { new Punto(null,true,true,false,true),new Punto(null,false,true,true,false),new Punto(null,true,false,false,true),new Punto(null,true,true,true,false),new Punto(null,false,true,false,true),new Punto(null,true,false,true,true),new Punto(null,false,true,true,false),new Punto(null,true,true,false,false) }, { new Punto(null,false,true,false,false),new Punto(null,false,false,false,true),new Punto(null,true,true,true,true),new Punto(null,true,true,true,false),new Punto(null,true,false,false,false),new Punto(null,false,true,false,true),new Punto(null,true,false,true,true),new Punto(null,false,true,true,false) }, { new Punto(null,false,false,false,true),new Punto(null,true,false,true,false),new Punto(null,true,true,false,true),new Punto(null,true,true,true,true),new Punto(null,true,true,true,false),new Punto(null,true,false,false,false),new Punto(null,false,true,false,true),new Punto(null,true,false,true,false) }, { new Punto(null,false,false,false,true),new Punto(null,false,true,true,true),new Punto(null,false,true,true,true),new Punto(null,false,true,true,false),new Punto(null,false,true,false,false),new Punto(null,false,true,false,false),new Punto(45,false,false,false,true),new Punto(null,false,true,true,false) } },0,0)).doCall().checkResult(new Integer(45)) ;
+{
+  v_0 = new Constructor(1).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Rossello")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(2)).doCall().checkResult(new String("Rossello")) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(2) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Sanchez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(2)).doCall().checkResult(new String("Rossello")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(5)).doCall().checkResult(new String("Sanchez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Prats")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Llorente")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(5)).doCall().checkResult(new String("Sanchez")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(9)).doCall().checkResult(new String("Prats")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Benach")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Albuixech")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(3)).doCall().checkResult(new String("Benach")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Marti")).doCall().checkResult(new String("Albuixech")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Martinez")).doCall().checkResult(new String("Benach")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Fernandez")).doCall().checkResult(new String("Martinez")) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(4)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Bonet")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Alzaga")).doCall().checkResult(new String("Fernandez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Garcia")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Gonzalez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(10),new String("Goicoechea")).doCall().checkResult(new String("Garcia")) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(9,new String("Prats")),new EntryImpl<Integer,String>(0,new String("Llorente")),new EntryImpl<Integer,String>(3,new String("Alzaga")),new EntryImpl<Integer,String>(4,new String("Marti")),new EntryImpl<Integer,String>(5,new String("Bonet")),new EntryImpl<Integer,String>(10,new String("Goicoechea")),new EntryImpl<Integer,String>(7,new String("Gonzalez")))) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Garcia")).doCall().checkResult(new String("Gonzalez")) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Llorente")).doCall().checkResult(new String("Alzaga")) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(0)).doCall().checkResult(new String("Llorente")) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(6)) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(9,new String("Prats")),new EntryImpl<Integer,String>(3,new String("Llorente")),new EntryImpl<Integer,String>(4,new String("Marti")),new EntryImpl<Integer,String>(5,new String("Bonet")),new EntryImpl<Integer,String>(10,new String("Goicoechea")),new EntryImpl<Integer,String>(7,new String("Garcia")))) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Navarro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(9,new String("Prats")),new EntryImpl<Integer,String>(3,new String("Llorente")),new EntryImpl<Integer,String>(4,new String("Marti")),new EntryImpl<Integer,String>(5,new String("Bonet")),new EntryImpl<Integer,String>(10,new String("Goicoechea")),new EntryImpl<Integer,String>(7,new String("Garcia")),new EntryImpl<Integer,String>(8,new String("Navarro")))) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Marti")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Echeberria")).doCall().checkResult(new String("Navarro")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Garcia")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(7)).doCall().checkResult(new String("Garcia")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(6)).doCall().checkResult(new String("Marti")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Sanchez")).doCall().checkResult(null) ;
 return ok_sofar ;
 }
 ) ;
@@ -3347,7 +5677,151 @@ return ok_sofar ;
     }
     String messages = TestData.getMessages() ;
     ResultsHandler.stopTest(new String("test_80")) ;
-    ResultsHandler.add_result(new String("explora"),resultIs) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
+    if (messages.length() > 0)
+      System.out.println(messages) ;
+    if (!resultIs)
+      Assertions.assertTrue(resultIs,messages) ;
+  }
+  
+  @Test
+  public void test_81 () 
+  {
+    if (ResultsHandler.isTimedout())
+    {
+      Assertions.assertTrue(false,new String("Testing stopped due to global timeout -- too slow execution")) ;
+    }
+    boolean resultIs = true ;
+    try
+    {
+      resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), ()  -> {
+TestResult<HashTable<Integer,String>,Void> v_0 = null ;
+HashTable<Integer,String> v_1 = null ;
+TesterCode.resetPrinter() ;
+TestData.initTrace() ;
+TestData.testName = new String("test_81") ;
+boolean ok_sofar = true ;
+ResultsHandler.startTest(new String("test_81")) ;
+if (ok_sofar)
+{
+  v_0 = new Constructor(4).doCall() ;
+  ok_sofar = v_0.checkResult(null) ;
+}
+if (ok_sofar)
+  v_1 = v_0.getValue() ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Llorente")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(1)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(2),new String("Marti")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(1,new String("Llorente")),new EntryImpl<Integer,String>(2,new String("Marti")))) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(1),new Integer(2) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Ferrer")).doCall().checkResult(new String("Llorente")) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(1,new String("Ferrer")),new EntryImpl<Integer,String>(2,new String("Marti")))) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Echeberria")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Marti")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(8)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(1,new String("Ferrer")),new EntryImpl<Integer,String>(2,new String("Marti")),new EntryImpl<Integer,String>(5,new String("Echeberria")),new EntryImpl<Integer,String>(8,new String("Marti")))) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(4)) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(1)).doCall().checkResult(new String("Ferrer")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(3),new String("Castro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(4)) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(4)) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(10)).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(2)).doCall().checkResult(new String("Marti")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Benach")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Marin")).doCall().checkResult(new String("Benach")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(0),new String("Sanchez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Castro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(2)).doCall().checkResult(new String("Marti")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Herrera")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Prats")).doCall().checkResult(new String("Marti")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Navarro")).doCall().checkResult(new String("Herrera")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Martinez")).doCall().checkResult(new String("Marin")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(6),new String("Navarro")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(5),new String("Prats")).doCall().checkResult(new String("Echeberria")) ;
+if (ok_sofar)
+  ok_sofar = new Get(v_1,new Integer(1)).doCall().checkResult(new String("Castro")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Prats")).doCall().checkResult(new String("Prats")) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(1)).doCall().checkResult(new String("Castro")) ;
+if (ok_sofar)
+  ok_sofar = new Size(v_1).doCall().checkResult(new Integer(7)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Gonzalez")).doCall().checkResult(new String("Martinez")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Castro")).doCall().checkResult(new String("Gonzalez")) ;
+if (ok_sofar)
+  ok_sofar = new ContainsKey(v_1,new Integer(5)).doCall().checkResult(new Boolean(true)) ;
+if (ok_sofar)
+  ok_sofar = new IsEmpty(v_1).doCall().checkResult(new Boolean(false)) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(7),new String("Castro")).doCall().checkResult(new String("Navarro")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(1),new String("Rodriguez")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(5),new Integer(8),new Integer(3),new Integer(9),new Integer(0),new Integer(7),new Integer(6),new Integer(1) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(9),new String("Ferrer")).doCall().checkResult(new String("Castro")) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Benach")).doCall().checkResult(new String("Prats")) ;
+if (ok_sofar)
+  ok_sofar = new Entries(v_1).doCall().checkResult(TestUtils.toGenericArray(new EntryImpl<Integer,String>(5,new String("Prats")),new EntryImpl<Integer,String>(8,new String("Benach")),new EntryImpl<Integer,String>(3,new String("Castro")),new EntryImpl<Integer,String>(9,new String("Ferrer")),new EntryImpl<Integer,String>(0,new String("Sanchez")),new EntryImpl<Integer,String>(7,new String("Castro")),new EntryImpl<Integer,String>(6,new String("Navarro")),new EntryImpl<Integer,String>(1,new String("Rodriguez")))) ;
+if (ok_sofar)
+  ok_sofar = new Remove(v_1,new Integer(1)).doCall().checkResult(new String("Rodriguez")) ;
+if (ok_sofar)
+  ok_sofar = new Keys(v_1).doCall().checkResult(new Integer[] { new Integer(5),new Integer(8),new Integer(3),new Integer(9),new Integer(0),new Integer(7),new Integer(6) }) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(4),new String("Alzaga")).doCall().checkResult(null) ;
+if (ok_sofar)
+  ok_sofar = new Put(v_1,new Integer(8),new String("Boix")).doCall().checkResult(new String("Benach")) ;
+return ok_sofar ;
+}
+) ;
+    }
+    catch ( org.opentest4j.AssertionFailedError exc )
+    {
+      TestUtils.printCallException(TestUtils.ExecutionTime.DURING,new String("*** TIMEOUT! *** Very slow or non-terminating execution"),exc) ;
+      resultIs = false ;
+    }
+    catch ( Throwable exc )
+    {
+      TestUtils.printCallException(TestUtils.ExecutionTime.UNRELATED,new String("Internal testing error; please report this to teachers"),exc) ;
+      resultIs = false ;
+    }
+    String messages = TestData.getMessages() ;
+    ResultsHandler.stopTest(new String("test_81")) ;
+    ResultsHandler.add_result(new String("hashtable_remove"),resultIs) ;
     if (messages.length() > 0)
       System.out.println(messages) ;
     if (!resultIs)
@@ -3357,287 +5831,31 @@ return ok_sofar ;
 
 
 static class Tests {
-  static String tester = "TesterLab3";
+  static String tester = "TesterLab4";
 }
 
 
+static class HashTableUtils {
+  static HashMap<Object,String> mapNames = null;
+  static Integer nameCounter = 0;
 
-
-static class MazeChecker {
-
-  static boolean checkExplore(Explora call,
-                              TestResult<Pair<Object,PositionList<Lugar>>,Integer> result,
-                              Integer expected)
-  {
-    boolean ok_sofar = true;
-    
-    if (!call.noException() || !call.nonNull())
-      ok_sofar = false;
-
-    if (ok_sofar) {
-      Pair<Object,PositionList<Lugar>> pair =
-	result.getValue();
-
-      if (pair == null)
-	ok_sofar = (expected == null);
-
-      if (!ok_sofar) {
-	TestUtils.printError
-	  (TestUtils.ExecutionTime.UNRELATED,
-	   "the call "+call+" returned null"+
-	   " but should have returned a pair with a tesoro "+expected);
-      }
-      
-      if (pair != null) {
-	Object treasure = pair.getLeft();
-	PositionList<Lugar> path = pair.getRight();
-	
-	if (treasure != null)
-	  ok_sofar = ok_sofar && treasure.equals(expected);
-	else
-	  ok_sofar = false;
-	
-	if (!ok_sofar) {
-	  TestUtils.printError
-	    (TestUtils.ExecutionTime.UNRELATED,
-	     "the call "+call+" returned the tesoro "+treasure+
-	     " but should have returned "+expected);
-	}
-      
-	if (ok_sofar && path == null) {
-	  TestUtils.printError
-	    (TestUtils.ExecutionTime.UNRELATED,
-	     "the call "+call+" returned the path null");
-	  ok_sofar = false;
-	}
-	
-	if (ok_sofar) {
-	  ok_sofar =
-	    checkPCPath(path, treasure, call.x_1.cueva, call.toString());
-	}
-      }
-    }
-    
-    if (!ok_sofar) {
-      TestData.message("\nLaberinto inicial: (x marca la posicion inicial, $ el tesoro) ");
-      TestData.message(Punto.printPuntos(call.x_1_orig.cueva,0,0));
-      TestData.message("\nLaberinto despues de la exploracion ($ el tesoro, y con simbol de tiza \".\"):");
-      TestData.message(Punto.printPuntos(call.x_1.cueva));
-      return false;
-    }
-    return ok_sofar;
+  public static void resetPrinter() {
+    mapNames = null;
+    nameCounter = 0;
   }
 
-
-  static boolean checkPCPath(PositionList<Lugar> path, Object treasure, Punto[][] puntos, String callString) {
-    Lugar currentLugar = new Lugar(puntos,0,0);
-    Position<Lugar> cursor = path.first();
-
-    if (cursor != null) {
-      Lugar pathLugar = cursor.element();
-      if (!currentLugar.equals(pathLugar)) {
-        TestUtils.printError
-          (TestUtils.ExecutionTime.UNRELATED,
-           "the call "+callString+" returned a path "+path+" with the initial lugar "+pathLugar+"; should be (0,0)");
-        return false;
+  public static String printer(Object obj) {
+    if (obj instanceof Map<?,?>) {
+      if (mapNames == null)
+        mapNames = new HashMap<Object,String>();
+      String name = mapNames.get(obj);
+      if (name == null) {
+        name = "map_"+nameCounter.toString();
+        mapNames.put(obj,name);
+        nameCounter++;
       }
-    }
-
-    if (cursor == null) {
-        TestUtils.printError
-          (TestUtils.ExecutionTime.UNRELATED,
-           "the call "+callString+" returned an empty path; at least one position is required");
-        return false;
-    }
-
-    while (cursor != path.last()) {
-
-      Lugar pathLugar = cursor.element();
-      if (pathLugar == null) {
-	TestUtils.printError
-	  (TestUtils.ExecutionTime.UNRELATED,
-	   "the call "+callString+" returned a path "+path+
-	   " that contains a null element");
-	return false;
-      }
-
-      cursor = path.next(cursor);
-      Lugar nextPathLugar = cursor.element();
-      boolean found = false;
-
-      for (Lugar nextLugar : currentLugar.caminos()) {
-	if (nextPathLugar.equals(nextLugar)) {
-	  found = true;
-          currentLugar = nextLugar;
-        }
-      }
-
-      if (!found) {
-	TestUtils.printError
-	  (TestUtils.ExecutionTime.UNRELATED,
-	   "the call "+callString+" returned a path "+path+
-	   " which cannot be taken; cannot find a valid path between "+pathLugar+" and "+nextPathLugar);
-	return false;
-      }
-    }
-
-    if (!currentLugar.tieneTesoro()) {
-	TestUtils.printError
-	  (TestUtils.ExecutionTime.UNRELATED,
-	   "the call "+callString+" returned a path "+path+
-	   " which terminates in a lugar "+
-	   " which does not contain any tesoro ");
-	return false;
-    }
-
-    if (!currentLugar.getTesoro().equals(treasure)) {
-	TestUtils.printError
-	  (TestUtils.ExecutionTime.UNRELATED,
-	   "the call "+callString+" returned a path "+path+
-	   " which terminates in a lugar "+
-	   " which has a tesoro "+currentLugar.getTesoro()+
-	   " which is distinct from the tesoro "+
-	   " returned by the call to "+callString);
-	return false;
-    }
-    return true;
-  }
-}
-
-
-
-
-static class CheckRecursion {
-
-  // Try to determine whether the starterName method is recursive.
-  // If the bcel library is not available, fail with a message
-  // indicating that no analysis was done. 
-    @SuppressWarnings({"unchecked","rawtypes"}) 
-    static boolean recursionCheck(String packageName, String className, String starterName, int arity) {
-    try {
-      String fullClassName =
-        packageName+"."+className;
-      Class<?> cl =
-        Class.forName(fullClassName).getClass();
-      String path =
-        new String("classes"+'/'+packageName+"."+className).replace('.','/')+".class";
-    
-      java.lang.Class classParserClass;
-      try {
-	classParserClass = java.lang.Class.forName("org.apache.bcel.classfile.ClassParser");
-      } catch (Throwable exc) {
-        return true;
-      }
-
-      java.lang.reflect.Constructor classParserConstructor =
-	classParserClass.getConstructor(path.getClass());
-      java.lang.reflect.Method parse =
-	classParserClass.getMethod("parse");
-
-      Object cp = null;
-      Object jc = null;
-    
-      cp = classParserConstructor.newInstance(path);
-      jc = parse.invoke(cp);
-
-      Hashtable<Pair<String,Integer>,HashSet<Pair<String,Integer>>> calls =
-        new Hashtable<Pair<String,Integer>,HashSet<Pair<String,Integer>>>();
-
-      java.lang.Class ccfgClass =
-	java.lang.Class.forName(packageName+".ClassCFG");
-      java.lang.reflect.Constructor ccfgConstructor =
-	ccfgClass.getConstructor(jc.getClass(), calls.getClass());
-
-      Object ccfg = ccfgConstructor.newInstance(jc, calls);
-      java.lang.reflect.Method start = ccfgClass.getMethod("start");
-      start.invoke(ccfg);
-
-      boolean result = 
-        isRecursive
-        (new Pair<String,Integer>
-         (packageName+"."+className+"."+starterName,arity),
-         new HashSet<Pair<String,Integer>>(),
-         calls);
-      
-      if (!result)
-	TestUtils.printWarning(TestUtils.ExecutionTime.UNRELATED,
-	  "la implementacion de "+starterName+
-	   " no parece recursivo aunque es OBLIGATORIO "+
-	   "-- compruebalo manualmente!\n");
-
-      try {
-        java.lang.Class rhClass =
-          java.lang.Class.forName(packageName+".ResultsHandler");
-        java.lang.reflect.Field completedAnalysis =
-          rhClass.getField("completedAnalysis");
-        completedAnalysis.setBoolean(null,true);
-      } catch (Throwable texc) { };
-
-      return true;
-    } catch (Throwable exc) {
-      TestUtils.printWarning(TestUtils.ExecutionTime.UNRELATED,
-                             "cannot analyze whether the method "+
-                             starterName+" is recursive");
-      exc.printStackTrace();
-      return true;
-    }
-  }
-
-  static boolean isRecursive(Pair<String,Integer> current,
-			     HashSet<Pair<String,Integer>> seen,
-			     Hashtable<Pair<String,Integer>,HashSet<Pair<String,Integer>>> calls) {
-    if (seen.contains(current)) {
-      return true;
-    }
-    
-    HashSet<Pair<String,Integer>> nexts = calls.get(current);
-    seen.add(current);
-    
-    if (nexts == null) return false;
-    else {
-      for (Pair<String,Integer> next : nexts)
-	if (isRecursive(next,seen,calls)) return true;
-    }
-    
-    return false;
-  }
-
-}
-
- 
-
-static class Recursividad2021Checker {
-
-  public static boolean
-    checkBottom(TestCall<Integer,Pair<ArrayIndexedList<MyInteger>,Integer>> call,
-                TestResult<Integer,Pair<ArrayIndexedList<MyInteger>,Integer>> result,
-                Pair<ArrayIndexedList<MyInteger>,Integer> expectedPair) {
-
-    ArrayIndexedList<MyInteger> expected = expectedPair.getLeft();
-    Integer arraySize = expectedPair.getRight();
-    long opCounter = MyInteger.getCounter();
-    MyInteger.setCounter(0);
-
-    long log2size = Math.round(Math.log(arraySize) / Math.log(2));
-
-    if (opCounter > log2size*4) {
-      TestUtils.printWarning
-        (TestUtils.ExecutionTime.DURING,
-         "during the call "+call.toString()+" "+opCounter+
-         " comparisons were made; the complexity of the algorithm does not appear to be logarithmic");
-    }
-
-    Integer resultValue = result.getValue();
-    if (!TestUtils.memberElements(new MyInteger(resultValue),expected)) {
-      TestUtils.printError
-        (TestUtils.ExecutionTime.DURING,
-         "the call "+call.toString()+
-         " returned a value "+TestUtils.print(result.getValue())+
-         "\nwhich was not included among the expected values\n"+
-         TestUtils.print(expected));
-      return false;
-    }
-    return true;
+      return name;
+    } else return TestUtils.printer(obj, x -> printer(x));
   }
 }
 
@@ -5036,42 +7254,33 @@ static abstract class TestCall<E,F> implements Call<E,F> {
 }
 
 
-static class Explora extends TestCall<es.upm.aedlib.Pair<Object,es.upm.aedlib.positionlist.PositionList<Lugar>>,Integer>
+static class Constructor extends TestCall<HashTable<Integer,String>,Void>
 {
-  Lugar x_1;
-  Lugar x_1_orig;
+  int x_1;
   
-  public Explora (Lugar x_1)
+  public Constructor (int x_1)
   {
     this.x_1 = x_1 ;
-    if (x_1 == null)
-      x_1_orig = null ;
-    else
-      x_1_orig = new Lugar(x_1) ;
   }
   
   public String toString () 
   {
     StringBuilder output = new StringBuilder() ;
-    output.append(new String("Explorador.explora")) ;
+    output.append(new String("new HashTable<Integer,String>")) ;
     output.append(new String("(")) ;
-    output.append(TesterCode.printer(x_1_orig)) ;
+    output.append(TesterCode.printer(x_1)) ;
     output.append(new String(")")) ;
     return output.toString() ;
   }
   
-  public es.upm.aedlib.Pair<Object,es.upm.aedlib.positionlist.PositionList<Lugar>> call () 
+  public HashTable<Integer,String> call () 
   {
-    return Explorador.explora(x_1) ;
+    return new HashTable<Integer,String>(x_1) ;
   }
   
-  public boolean checkResult (Integer expected) 
+  public boolean checkResult (Void expected) 
   {
-    if (!(result.isException() || fresh(result.getValue(),x_1)))
-      return false ;
-    if (!unchanged(x_1,x_1_orig))
-      return false ;
-    if (!MazeChecker.checkExplore(this,result,expected))
+    if (!noException())
       return false ;
     return true ;
   }
@@ -5079,57 +7288,112 @@ static class Explora extends TestCall<es.upm.aedlib.Pair<Object,es.upm.aedlib.po
 }
 
 
-static class JoinMultiSets extends TestCall<es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>,es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>>
+static class Keys extends TestCall<Iterable<Integer>,Integer[]>
 {
-  es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>> x_1;
-  es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>> x_1_orig;
-  es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>> x_2;
-  es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>> x_2_orig;
+  HashTable<Integer,String> x_1;
   
-  public JoinMultiSets (es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>> x_1,es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>> x_2)
+  public Keys (HashTable<Integer,String> x_1)
   {
     this.x_1 = x_1 ;
-    if (x_1 == null)
-      x_1_orig = null ;
-    else
-      x_1_orig = new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(x_1) ;
-    this.x_2 = x_2 ;
-    if (x_2 == null)
-      x_2_orig = null ;
-    else
-      x_2_orig = new es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>>(x_2) ;
   }
   
   public String toString () 
   {
     StringBuilder output = new StringBuilder() ;
-    output.append(new String("Utils.joinMultiSets")) ;
+    output.append(TesterCode.printer(x_1)) ;
+    output.append(new String(".keys")) ;
     output.append(new String("(")) ;
-    output.append(TesterCode.printer(x_1_orig)) ;
-    output.append(new String(", ")) ;
-    output.append(TesterCode.printer(x_2_orig)) ;
     output.append(new String(")")) ;
     return output.toString() ;
   }
   
-  public es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>> call () 
+  public Iterable<Integer> call () 
   {
-    return Utils.joinMultiSets(x_1,x_2) ;
+    return x_1.keys() ;
   }
   
-  public boolean checkResult (es.upm.aedlib.positionlist.NodePositionList<es.upm.aedlib.Pair<Character,Integer>> expected) 
+  public boolean checkResult (Integer[] expected) 
   {
     if (!noException())
       return false ;
     if (!nonNull())
       return false ;
-    if (!(result.isException() || fresh(result.getValue(),x_1)))
+    if (!TestUtils.unorderedIterableCorrect(this,result,expected))
       return false ;
-    if (!(result.isException() || fresh(result.getValue(),x_2)))
+    return true ;
+  }
+  
+}
+
+
+static class Entries extends TestCall<Iterable<Entry<Integer,String>>,EntryImpl<Integer,String>[]>
+{
+  HashTable<Integer,String> x_1;
+  
+  public Entries (HashTable<Integer,String> x_1)
+  {
+    this.x_1 = x_1 ;
+  }
+  
+  public String toString () 
+  {
+    StringBuilder output = new StringBuilder() ;
+    output.append(TesterCode.printer(x_1)) ;
+    output.append(new String(".entries")) ;
+    output.append(new String("(")) ;
+    output.append(new String(")")) ;
+    return output.toString() ;
+  }
+  
+  public Iterable<Entry<Integer,String>> call () 
+  {
+    return x_1.entries() ;
+  }
+  
+  public boolean checkResult (EntryImpl<Integer,String>[] expected) 
+  {
+    if (!noException())
       return false ;
-    if (!unchanged(x_1,x_1_orig))
+    if (!nonNull())
       return false ;
-    if (!unchanged(x_2,x_2_orig))
+    if (!TestUtils.unorderedIterableCorrect(this,result,expected))
+      return false ;
+    return true ;
+  }
+  
+}
+
+
+static class Get extends TestCall<String,String>
+{
+  HashTable<Integer,String> x_1;
+  Integer x_2;
+  
+  public Get (HashTable<Integer,String> x_1,Integer x_2)
+  {
+    this.x_1 = x_1 ;
+    this.x_2 = x_2 ;
+  }
+  
+  public String toString () 
+  {
+    StringBuilder output = new StringBuilder() ;
+    output.append(TesterCode.printer(x_1)) ;
+    output.append(new String(".get")) ;
+    output.append(new String("(")) ;
+    output.append(TesterCode.printer(x_2)) ;
+    output.append(new String(")")) ;
+    return output.toString() ;
+  }
+  
+  public String call () 
+  {
+    return x_1.get(x_2) ;
+  }
+  
+  public boolean checkResult (String expected) 
+  {
+    if (!noException())
       return false ;
     if (!valuesMatch(expected))
       return false ;
@@ -5139,32 +7403,71 @@ static class JoinMultiSets extends TestCall<es.upm.aedlib.positionlist.NodePosit
 }
 
 
-static class Multiply extends TestCall<Integer,Integer>
+static class Put extends TestCall<String,String>
 {
-  Integer x_1;
+  HashTable<Integer,String> x_1;
   Integer x_2;
+  String x_3;
   
-  public Multiply (Integer x_1,Integer x_2)
+  public Put (HashTable<Integer,String> x_1,Integer x_2,String x_3)
   {
     this.x_1 = x_1 ;
     this.x_2 = x_2 ;
+    this.x_3 = x_3 ;
   }
   
   public String toString () 
   {
     StringBuilder output = new StringBuilder() ;
-    output.append(new String("Utils.multiply")) ;
-    output.append(new String("(")) ;
     output.append(TesterCode.printer(x_1)) ;
-    output.append(new String(", ")) ;
+    output.append(new String(".put")) ;
+    output.append(new String("(")) ;
     output.append(TesterCode.printer(x_2)) ;
+    output.append(new String(", ")) ;
+    output.append(TesterCode.printer(x_3)) ;
+    output.append(new String(")")) ;
+    return output.toString() ;
+  }
+  
+  public String call () 
+  {
+    return x_1.put(x_2,x_3) ;
+  }
+  
+  public boolean checkResult (String expected) 
+  {
+    if (!noException())
+      return false ;
+    if (!valuesMatch(expected))
+      return false ;
+    return true ;
+  }
+  
+}
+
+
+static class Size extends TestCall<Integer,Integer>
+{
+  HashTable<Integer,String> x_1;
+  
+  public Size (HashTable<Integer,String> x_1)
+  {
+    this.x_1 = x_1 ;
+  }
+  
+  public String toString () 
+  {
+    StringBuilder output = new StringBuilder() ;
+    output.append(TesterCode.printer(x_1)) ;
+    output.append(new String(".size")) ;
+    output.append(new String("(")) ;
     output.append(new String(")")) ;
     return output.toString() ;
   }
   
   public Integer call () 
   {
-    return Utils.multiply(x_1,x_2) ;
+    return x_1.size() ;
   }
   
   public boolean checkResult (Integer expected) 
@@ -5181,40 +7484,67 @@ static class Multiply extends TestCall<Integer,Integer>
 }
 
 
-static class RecursionCheck extends TestCall<Boolean,Boolean>
+static class Remove extends TestCall<String,String>
 {
-  String x_1;
-  String x_2;
-  String x_3;
-  Integer x_4;
+  HashTable<Integer,String> x_1;
+  Integer x_2;
   
-  public RecursionCheck (String x_1,String x_2,String x_3,Integer x_4)
+  public Remove (HashTable<Integer,String> x_1,Integer x_2)
   {
     this.x_1 = x_1 ;
     this.x_2 = x_2 ;
-    this.x_3 = x_3 ;
-    this.x_4 = x_4 ;
   }
   
   public String toString () 
   {
     StringBuilder output = new StringBuilder() ;
-    output.append(new String("CheckRecursion.recursionCheck")) ;
-    output.append(new String("(")) ;
     output.append(TesterCode.printer(x_1)) ;
-    output.append(new String(", ")) ;
+    output.append(new String(".remove")) ;
+    output.append(new String("(")) ;
     output.append(TesterCode.printer(x_2)) ;
-    output.append(new String(", ")) ;
-    output.append(TesterCode.printer(x_3)) ;
-    output.append(new String(", ")) ;
-    output.append(TesterCode.printer(x_4)) ;
+    output.append(new String(")")) ;
+    return output.toString() ;
+  }
+  
+  public String call () 
+  {
+    return x_1.remove(x_2) ;
+  }
+  
+  public boolean checkResult (String expected) 
+  {
+    if (!noException())
+      return false ;
+    if (!valuesMatch(expected))
+      return false ;
+    return true ;
+  }
+  
+}
+
+
+static class IsEmpty extends TestCall<Boolean,Boolean>
+{
+  HashTable<Integer,String> x_1;
+  
+  public IsEmpty (HashTable<Integer,String> x_1)
+  {
+    this.x_1 = x_1 ;
+  }
+  
+  public String toString () 
+  {
+    StringBuilder output = new StringBuilder() ;
+    output.append(TesterCode.printer(x_1)) ;
+    output.append(new String(".isEmpty")) ;
+    output.append(new String("(")) ;
     output.append(new String(")")) ;
     return output.toString() ;
   }
   
   public Boolean call () 
   {
-    return CheckRecursion.recursionCheck(x_1,x_2,x_3,x_4) ;
+    return x_1.isEmpty() ;
   }
   
   public boolean checkResult (Boolean expected) 
@@ -5231,46 +7561,40 @@ static class RecursionCheck extends TestCall<Boolean,Boolean>
 }
 
 
-static class FindBottom extends TestCall<Integer,es.upm.aedlib.Pair<es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>,Integer>>
+static class ContainsKey extends TestCall<Boolean,Boolean>
 {
-  es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger> x_1;
-  es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger> x_1_orig;
+  HashTable<Integer,String> x_1;
+  Integer x_2;
   
-  public FindBottom (es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger> x_1)
+  public ContainsKey (HashTable<Integer,String> x_1,Integer x_2)
   {
     this.x_1 = x_1 ;
-    if (x_1 == null)
-      x_1_orig = null ;
-    else
-      x_1_orig = new es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>(x_1) ;
+    this.x_2 = x_2 ;
   }
   
   public String toString () 
   {
     StringBuilder output = new StringBuilder() ;
-    output.append(new String("Utils.findBottom")) ;
+    output.append(TesterCode.printer(x_1)) ;
+    output.append(new String(".containsKey")) ;
     output.append(new String("(")) ;
-    output.append(TesterCode.printer(x_1_orig)) ;
+    output.append(TesterCode.printer(x_2)) ;
     output.append(new String(")")) ;
     return output.toString() ;
   }
   
-  public Integer call () 
+  public Boolean call () 
   {
-    return Utils.findBottom(x_1) ;
+    return x_1.containsKey(x_2) ;
   }
   
-  public boolean checkResult (es.upm.aedlib.Pair<es.upm.aedlib.indexedlist.ArrayIndexedList<MyInteger>,Integer> expected) 
+  public boolean checkResult (Boolean expected) 
   {
     if (!noException())
       return false ;
     if (!nonNull())
       return false ;
-    if (!(result.isException() || fresh(result.getValue(),x_1)))
-      return false ;
-    if (!unchanged(x_1,x_1_orig))
-      return false ;
-    if (!Recursividad2021Checker.checkBottom(this,result,expected))
+    if (!valuesMatch(expected))
       return false ;
     return true ;
   }
@@ -5507,10 +7831,12 @@ static class ResultsHandler extends BaseResultsHandler {
       return false;
     }
 
-    int numSuccesses = 0;
-    
+    boolean non_remove = false;
+    boolean remove = false;
+
     for (String key : results_sofar.keySet()) {
-      if (!key.equals("recursionCheck") && results_sofar.get(key)) ++numSuccesses;
+      if (!key.equals("non_remove") && results_sofar.get(key)) non_remove = true;
+      if (!key.equals("remove") && results_sofar.get(key)) remove = true;
     }
 
     if (numTestsRemaining > 0) {
@@ -5518,7 +7844,7 @@ static class ResultsHandler extends BaseResultsHandler {
       return false;
     }
 
-    return numSuccesses >= 3;
+    return non_remove;
   }
 
   static void report_results() {
@@ -5547,11 +7873,12 @@ static class TesterCode
   
   public static void resetPrinter () 
   {
+    HashTableUtils.resetPrinter() ;
   }
   
   public static String printer (Object obj) 
   {
-    return TestUtils.standardPrinter(obj) ;
+    return HashTableUtils.printer(obj) ;
   }
   
 }
